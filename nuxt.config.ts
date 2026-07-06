@@ -4,9 +4,7 @@ const siteDataPath = 'data/site.json'
 const siteData = existsSync(siteDataPath)
   ? JSON.parse(readFileSync(siteDataPath, 'utf-8'))
   : null
-const pageTitle = siteData?.profile?.name
-  ? `${siteData.profile.name} | ポートフォリオ`
-  : 'ポートフォリオ'
+const pageTitle = [siteData?.profile?.name, 'ポートフォリオ'].filter(Boolean).join(' | ')
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
