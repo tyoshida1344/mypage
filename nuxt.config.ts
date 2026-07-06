@@ -1,9 +1,19 @@
+import { readFileSync, existsSync } from 'node:fs'
+
+const siteDataPath = 'data/site.json'
+const siteData = existsSync(siteDataPath)
+  ? JSON.parse(readFileSync(siteDataPath, 'utf-8'))
+  : null
+const pageTitle = siteData?.profile?.name
+  ? `${siteData.profile.name} | ポートフォリオ`
+  : 'ポートフォリオ'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   ssr: true,
   app: {
     head: {
-      title: '吉田 大河 | ポートフォリオ',
+      title: pageTitle,
       htmlAttrs: { lang: 'ja' },
       meta: [
         { charset: 'utf-8' },

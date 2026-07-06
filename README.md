@@ -29,35 +29,29 @@ npm run preview
 
 ## デプロイ
 
-Netlify にリポジトリを接続すると、`main` ブランチへのプッシュで自動デプロイされます。
+Netlify にリポジトリを接続して自動デプロイを設定します。
 
-| 設定項目 | 値 |
-|---|---|
-| Build command | `npm run generate` |
-| Publish directory | `.output/public` |
+1. [Netlify](https://app.netlify.com/) にログインし、**Add new site** → **Import an existing project** を選択
+2. GitHub を連携し、`tyoshida1344/mypage` リポジトリを選択
+3. ビルド設定は `netlify.toml` から自動で読み込まれるため変更不要
+4. **Deploy site** をクリック
+
+以降は `main` ブランチへのプッシュで自動デプロイされます。
 
 ## プロジェクト構成
 
 ```
 ├── app.vue                 # ルートコンポーネント
-├── data/
-│   └── site.json            # サイトコンテンツ（氏名・経歴・スキル等）
 ├── pages/
 │   └── index.vue           # トップページ
-├── components/
-│   ├── AppHeader.vue       # ナビゲーション
-│   ├── HeroSection.vue     # ヒーローセクション
-│   ├── SectionWrapper.vue  # セクション共通レイアウト
-│   ├── AboutSection.vue    # 自己紹介
-│   ├── SkillsSection.vue   # 技術スキル
-│   ├── ServiceSection.vue  # 提供サービス
-│   ├── WorksSection.vue    # ポートフォリオ
-│   ├── CareerSection.vue   # 経歴
-│   ├── ContactSection.vue  # 連絡先
-│   └── AppFooter.vue       # フッター
+├── components/             # 各セクションのVueコンポーネント
 ├── assets/css/
 │   └── main.css            # グローバルスタイル・CSS変数
-├── public/                 # 画像等の静的ファイル（favicon 等）
+├── data/
+│   ├── site.json           # サイトコンテンツ（gitignore対象）
+│   └── site.example.json   # site.json のテンプレート
+├── scripts/
+│   └── setup-data.sh       # ビルド時のデータ復元スクリプト
 ├── nuxt.config.ts          # Nuxt 設定
 └── netlify.toml            # Netlify デプロイ設定
 ```
