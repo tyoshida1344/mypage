@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { services } from '~/data/site.json'
+import { services } from '~/data/site'
 </script>
 
 <style scoped>

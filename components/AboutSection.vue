@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile } from '~/data/site.json'
+import { profile } from '~/data/site'
 </script>
 
 <style scoped>

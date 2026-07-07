@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { skills } from '~/data/site.json'
+import { skills } from '~/data/site'
 
 const colorMap: Record<string, string> = {
   red: 'var(--color-accent-red)',

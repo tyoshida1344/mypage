@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile, contact } from '~/data/site.json'
+import { profile, contact } from '~/data/site'
 </script>
 
 <style scoped>

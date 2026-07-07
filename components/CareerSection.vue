@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { career } from '~/data/site.json'
+import { career } from '~/data/site'
 </script>
 
 <style scoped>

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile, links as siteLinks } from '~/data/site.json'
+import { profile, links as siteLinks } from '~/data/site'
 </script>
 
 <style scoped>
