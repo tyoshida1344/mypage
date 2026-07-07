@@ -10,6 +10,16 @@ const pageTitle = [siteData?.profile?.name, 'ポートフォリオ'].filter(Bool
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   ssr: true,
+  modules: ['@nuxtjs/google-fonts'],
+  googleFonts: {
+    families: {
+      'Noto Sans JP': [300, 400, 500, 600, 700],
+      'Space Mono': [400, 700],
+    },
+    display: 'swap',
+    preload: true,
+    subsets: ['latin', 'japanese'],
+  },
   app: {
     head: {
       title: pageTitle,
@@ -17,14 +27,6 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ],
-      link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap',
-        },
       ],
     },
   },
