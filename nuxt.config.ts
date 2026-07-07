@@ -1,18 +1,19 @@
-import { readFileSync, existsSync } from 'node:fs'
-import type { SiteData } from './types/site'
+import { readFileSync, existsSync } from 'node:fs';
+import type { SiteData } from './types/site';
 
-const siteDataPath = 'data/site.json'
+const siteDataPath = 'data/site.json';
 const siteData = existsSync(siteDataPath)
-  ? JSON.parse(readFileSync(siteDataPath, 'utf-8')) as SiteData
-  : null
-const pageTitle = [siteData?.profile?.name, 'ポートフォリオ'].filter(Boolean).join(' | ')
-const siteDescription = siteData?.profile?.lead ?? ''
-const siteUrl = siteData?.siteUrl ?? ''
+  ? (JSON.parse(readFileSync(siteDataPath, 'utf-8')) as SiteData)
+  : null;
+const pageTitle = [siteData?.profile?.name, 'ポートフォリオ'].filter(Boolean).join(' | ');
+const siteDescription = siteData?.profile?.lead ?? '';
+const siteUrl = siteData?.siteUrl ?? '';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   ssr: true,
-  modules: ['@nuxtjs/google-fonts'],
+  site: { url: siteUrl },
+  modules: ['@nuxtjs/google-fonts', '@nuxt/eslint', '@nuxtjs/sitemap'],
   googleFonts: {
     families: {
       'Noto Sans JP': [300, 400, 500, 600, 700],
@@ -42,4 +43,4 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
-})
+});

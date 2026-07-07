@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile } from '~/data/site'
+import { profile } from '~/data/site';
 </script>
 
 <style scoped>

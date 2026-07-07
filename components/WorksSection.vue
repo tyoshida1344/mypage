@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { works, links as siteLinks } from '~/data/site'
+import { works, links as siteLinks } from '~/data/site';
 </script>
 
 <style scoped>

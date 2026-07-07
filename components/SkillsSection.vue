@@ -18,14 +18,14 @@
 </template>
 
 <script setup lang="ts">
-import { skills } from '~/data/site'
+import { skills } from '~/data/site';
 
 const colorMap: Record<string, string> = {
   red: 'var(--color-accent-red)',
   blue: 'var(--color-accent-blue)',
   green: 'var(--color-accent-green)',
   gray: 'var(--color-accent-gray)',
-}
+};
 </script>
 
 <style scoped>

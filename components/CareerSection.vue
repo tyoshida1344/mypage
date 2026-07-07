@@ -1,10 +1,5 @@
 <template>
-  <SectionWrapper
-    id="career"
-    number="05"
-    title="経歴"
-    :dot-color="'var(--color-accent-blue)'"
-  >
+  <SectionWrapper id="career" number="05" title="経歴" :dot-color="'var(--color-accent-blue)'">
     <div class="timeline">
       <div class="timeline-line" />
 
@@ -29,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { career } from '~/data/site'
+import { career } from '~/data/site';
 </script>
 
 <style scoped>
