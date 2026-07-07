@@ -15,12 +15,12 @@
 
 <script setup lang="ts">
 defineProps<{
-  id: string
-  number: string
-  title: string
-  dotColor: string
-  noBorder?: boolean
-}>()
+  id: string;
+  number: string;
+  title: string;
+  dotColor: string;
+  noBorder?: boolean;
+}>();
 </script>
 
 <style scoped>

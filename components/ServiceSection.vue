@@ -7,31 +7,31 @@
   >
     <div class="service-list">
       <div v-for="service in services" :key="service.name" class="service-card">
-      <div class="service-image">
-        <span class="service-image-text">デモGIF / スクリーンショット</span>
-      </div>
-      <div class="service-body">
-        <div class="service-tags">
-          <span class="tag">{{ service.type }}</span>
-          <span class="tag-sub">{{ service.category }}</span>
+        <div class="service-image">
+          <span class="service-image-text">デモGIF / スクリーンショット</span>
         </div>
-        <div class="service-name">{{ service.name }}</div>
-        <p class="service-desc">{{ service.description }}</p>
-        <div class="service-tech">{{ service.tech }}</div>
-        <div class="service-actions">
-          <a :href="service.link" class="btn-primary">
-            {{ service.linkLabel }}<span class="arrow">↗</span>
-          </a>
-          <span class="service-note">{{ service.note }}</span>
+        <div class="service-body">
+          <div class="service-tags">
+            <span class="tag">{{ service.type }}</span>
+            <span class="tag-sub">{{ service.category }}</span>
+          </div>
+          <div class="service-name">{{ service.name }}</div>
+          <p class="service-desc">{{ service.description }}</p>
+          <div class="service-tech">{{ service.tech }}</div>
+          <div class="service-actions">
+            <a :href="service.link" class="btn-primary">
+              {{ service.linkLabel }}<span class="arrow">↗</span>
+            </a>
+            <span class="service-note">{{ service.note }}</span>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </SectionWrapper>
 </template>
 
 <script setup lang="ts">
-import { services } from '~/data/site'
+import { services } from '~/data/site';
 </script>
 
 <style scoped>

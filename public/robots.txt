@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://triver-selfy.netlify.app/sitemap.xml

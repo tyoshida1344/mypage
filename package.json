@@ -6,15 +6,24 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sitemap": "^8.2.2",
     "nuxt": "^3.16.0",
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^1.16.0",
     "@types/node": "^26.1.0",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.4",
     "typescript": "^5.7.0",
     "vue-tsc": "^3.3.6"
   }
