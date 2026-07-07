@@ -1,0 +1,128 @@
+{
+  "profile": {
+    "name": "吉田 大河",
+    "title": "バックエンドエンジニア / 個人事業主",
+    "email": "t.yoshida1344@gmail.com",
+    "lead": "ここに、あなたを一言で表すリード文を入れます。専門領域や提供できる価値を、短く簡潔に。",
+    "about": "ここに自己紹介を記載します。経歴・得意な技術領域・働き方や大切にしている考え方などを、自分の言葉で簡潔にまとめてください。"
+  },
+  "skills": [
+    {
+      "label": "言語",
+      "color": "red",
+      "items": "Java · Kotlin · JavaScript · TypeScript · Dart"
+    },
+    {
+      "label": "フレームワーク",
+      "color": "blue",
+      "items": "Spring Boot · Vue · React · Flutter · React Native"
+    },
+    {
+      "label": "インフラ / DB",
+      "color": "green",
+      "items": "AWS（EC2・S3・RDS・ECS）· MySQL · PostgreSQL"
+    },
+    {
+      "label": "その他",
+      "color": "gray",
+      "items": "Docker · Git · GitHub · Claude Code"
+    }
+  ],
+  "services": [
+    {
+      "type": "Chrome拡張",
+      "category": "個人開発",
+      "name": "プロダクト名を入力",
+      "description": "この拡張機能で何ができるのか、誰のどんな課題を解決するのかを1〜2行で簡潔に。ストアでは未公開で、リポジトリをクローンしてご利用いただけます。",
+      "tech": "使用技術 · を · 記載",
+      "link": "#",
+      "linkLabel": "GitHub から入手",
+      "note": "git clone してご利用ください"
+    }
+  ],
+  "works": [
+    {
+      "title": "作品タイトルを入力",
+      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
+      "tech": "使用技術 · を · 記載",
+      "link": "#"
+    },
+    {
+      "title": "作品タイトルを入力",
+      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
+      "tech": "使用技術 · を · 記載",
+      "link": "#"
+    },
+    {
+      "title": "作品タイトルを入力",
+      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
+      "tech": "使用技術 · を · 記載",
+      "link": "#"
+    }
+  ],
+  "career": [
+    {
+      "company": "SES企業（社名非公開）",
+      "period": "2020.04 – 2023.08",
+      "items": [
+        {
+          "period": "'20.07–'21.07",
+          "title": "人間ドック予約サイトの開発・運用・保守",
+          "tech": "Java(Seasar2) · JSP · AWS · Oracle"
+        },
+        {
+          "period": "'21.08–'22.12",
+          "title": "オンライン決済システムの開発",
+          "tech": "Vue3 · Java(Spring Boot) · MySQL"
+        },
+        {
+          "period": "'22.12–'23.08",
+          "title": "後払いシステムのシステムテスト",
+          "tech": "Java(Spring Boot) · AWS · PostgreSQL"
+        }
+      ]
+    },
+    {
+      "company": "個人事業主",
+      "period": "2024.04 – 現在",
+      "items": [
+        {
+          "period": "'24.04–'24.07",
+          "title": "新人研修の技術講師・学習サポート",
+          "tech": "Java · Linux · AWS · PostgreSQL"
+        },
+        {
+          "period": "'24.08–'25.05",
+          "title": "書籍販売 EC サイトの Web アプリ開発",
+          "tech": "Nuxt3(TS) · Remix(TS) · Terraform · Shopify"
+        },
+        {
+          "period": "'24.10–'26.06",
+          "title": "オフィス管理システムの新規・拡張開発",
+          "tech": "Kotlin(Spring Boot) · Nuxt2 · Flutter · Claude Code"
+        },
+        {
+          "period": "'25.11–'26.06",
+          "title": "新卒マッチングモバイルアプリの新規開発",
+          "tech": "Expo(React Native) · TypeScript · Figma"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "description": "バックエンド・フロントエンド・モバイルまでフルスタックでご相談ください。",
+    "details": [
+      {
+        "label": "稼働形態",
+        "value": "フルリモート希望。移動時間次第で週3程度の出社可能。それ以上の頻度、遠方は応相談。"
+      },
+      {
+        "label": "稼働日数",
+        "value": "〜週5日 / 稼働時間は応相談"
+      }
+    ]
+  },
+  "links": {
+    "github": "https://github.com/tyoshida1344"
+  }
+}

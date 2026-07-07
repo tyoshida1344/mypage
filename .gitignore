@@ -4,4 +4,3 @@ node_modules
 dist
 .netlify
 *.log
-data/site.json
