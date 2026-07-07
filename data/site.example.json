@@ -1,4 +1,5 @@
 {
+  "siteUrl": "https://your-site.example.com",
   "profile": {
     "name": "氏名を入力",
     "title": "肩書きを入力",

@@ -57,6 +57,7 @@ export interface Links {
 }
 
 export interface SiteData {
+  siteUrl: string
   profile: Profile
   skills: Skill[]
   services: Service[]
