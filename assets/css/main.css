@@ -15,7 +15,7 @@
   --color-border-lighter: #e4e0da;
   --color-border-tag: #d8d3cc;
   --color-text-hover: #333;
-  --shadow-card-hover: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.1);
   --font-sans: 'Noto Sans JP', sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
