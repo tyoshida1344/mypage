@@ -8,7 +8,7 @@
       </span>
       <span class="name">{{ profile.name }}</span>
     </a>
-    <nav class="nav">
+    <nav class="nav" aria-label="メインナビゲーション">
       <a href="#about">自己紹介</a>
       <a href="#skills">技術スキル</a>
       <a href="#product">提供サービス</a>
