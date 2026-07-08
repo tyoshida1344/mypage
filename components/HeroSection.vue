@@ -57,6 +57,8 @@ import { profile } from '~/data/site';
   pointer-events: none;
   user-select: none;
   animation: code-fade-in 0.8s ease 0.3s both;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+  border-radius: 16px;
 }
 
 @keyframes code-fade-in {
@@ -75,9 +77,9 @@ import { profile } from '~/data/site';
   font-size: 13px;
   line-height: 1.8;
   margin: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
   padding: 28px;
-  border-radius: 16px;
+  -webkit-mask-image: linear-gradient(180deg, transparent 25%, white 100%);
+  mask-image: linear-gradient(180deg, transparent 25%, white 100%);
 }
 
 .hl-keyword {
