@@ -131,10 +131,10 @@ import { profile } from '~/data/site';
   }
 
   .hero-code {
-    right: -60px;
+    position: relative;
+    right: -20px;
     top: auto;
-    bottom: -30px;
-    transform: none;
+    margin-top: 24px;
   }
 
   .hero-code pre {
