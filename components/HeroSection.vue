@@ -53,8 +53,7 @@ import { profile } from '~/data/site';
 .hero-code {
   position: absolute;
   right: -40px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 60px;
   pointer-events: none;
   user-select: none;
 }
