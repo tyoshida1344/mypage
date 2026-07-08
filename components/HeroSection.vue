@@ -114,6 +114,7 @@ import { profile } from '~/data/site';
   letter-spacing: 0.14em;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 24px;
+  animation: code-fade-in 0.8s ease both;
 }
 
 .title {
@@ -123,6 +124,7 @@ import { profile } from '~/data/site';
   letter-spacing: 0.03em;
   margin: 0 0 26px;
   color: #ffffff;
+  animation: code-fade-in 0.8s ease 0.1s both;
 }
 
 .lead {
@@ -131,6 +133,7 @@ import { profile } from '~/data/site';
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   font-weight: 300;
+  animation: code-fade-in 0.8s ease 0.2s both;
 }
 
 @media (max-width: 768px) {
