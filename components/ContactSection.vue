@@ -32,6 +32,11 @@ import { profile, contact } from '~/data/site';
   border-bottom: 1px solid var(--color-accent-red);
   padding-bottom: 3px;
   display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.email:hover {
+  opacity: 0.6;
 }
 
 .contact-sub {
