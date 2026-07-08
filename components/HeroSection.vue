@@ -36,7 +36,7 @@ import { profile } from '~/data/site';
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #cc4400 0%, #ff5500 40%, #ff8844 100%);
+  background: linear-gradient(135deg, #b33a00 0%, #ff5500 40%, #ffaa55 100%);
 }
 
 .hero-inner {
