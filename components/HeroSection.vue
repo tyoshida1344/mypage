@@ -56,6 +56,18 @@ import { profile } from '~/data/site';
   top: 60px;
   pointer-events: none;
   user-select: none;
+  animation: code-fade-in 0.8s ease 0.3s both;
+}
+
+@keyframes code-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-code pre {
