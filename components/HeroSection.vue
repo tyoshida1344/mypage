@@ -34,26 +34,27 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
+  position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #cc4400 0%, #ff5500 40%, #ff8844 100%);
 }
 
 .hero-inner {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+  position: relative;
   max-width: 1160px;
   margin: 0 auto;
   padding: 96px 80px 72px;
 }
 
 .hero-text {
-  flex: 1;
-  min-width: 0;
+  max-width: 540px;
 }
 
 .hero-code {
-  flex-shrink: 0;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
   pointer-events: none;
   user-select: none;
 }
@@ -123,18 +124,22 @@ import { profile } from '~/data/site';
 
 @media (max-width: 768px) {
   .hero-inner {
-    flex-direction: column;
     padding: 48px 20px 36px;
-    gap: 24px;
+  }
+
+  .hero-text {
+    max-width: none;
   }
 
   .hero-code {
-    align-self: stretch;
-    overflow-x: auto;
+    right: -60px;
+    top: auto;
+    bottom: -30px;
+    transform: none;
   }
 
   .hero-code pre {
-    font-size: 11px;
+    font-size: 10px;
     padding: 20px;
     border-radius: 12px;
   }
