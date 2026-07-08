@@ -1,7 +1,7 @@
 <template>
   <SectionWrapper id="product" number="03" title="提供サービス">
     <div class="service-list">
-      <div v-for="service in services" :key="service.name" class="service-card">
+      <a v-for="service in services" :key="service.name" :href="service.link" class="service-card" target="_blank" rel="noopener noreferrer">
         <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
           <span class="service-image-text" aria-hidden="true">デモGIF / スクリーンショット</span>
         </div>
@@ -14,13 +14,13 @@
           <p class="service-desc">{{ service.description }}</p>
           <div class="service-tech">{{ service.tech }}</div>
           <div class="service-actions">
-            <a :href="service.link" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            <span class="btn-primary">
               {{ service.linkLabel }}<span class="arrow">↗</span>
-            </a>
+            </span>
             <span class="service-note">{{ service.note }}</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </SectionWrapper>
 </template>
@@ -37,10 +37,14 @@ import { services } from '~/data/site';
 }
 
 .service-card {
+  display: block;
   border: 1px solid var(--color-border-light);
   border-radius: 8px;
   overflow: hidden;
   max-width: 560px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -136,8 +140,7 @@ import { services } from '~/data/site';
   transition: background 0.2s ease;
 }
 
-.btn-primary:hover,
-.btn-primary:focus-visible {
+.service-card:hover .btn-primary {
   background: var(--color-primary-dark);
 }
 
