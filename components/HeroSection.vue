@@ -52,7 +52,7 @@ import { profile } from '~/data/site';
 
 .hero-code {
   position: absolute;
-  right: -40px;
+  right: -80px;
   top: 60px;
   pointer-events: none;
   user-select: none;
@@ -136,6 +136,7 @@ import { profile } from '~/data/site';
     top: auto;
     margin-top: 24px;
     margin-right: -40px;
+    margin-bottom: -60px;
   }
 
   .hero-code pre {
