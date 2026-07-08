@@ -53,14 +53,16 @@ import { profile } from '~/data/site';
 .hero-code {
   position: absolute;
   right: -80px;
-  top: 60px;
+  top: 0;
   pointer-events: none;
   user-select: none;
   animation: code-fade-in 0.8s ease 0.3s both;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
-  border-radius: 16px;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 @keyframes code-fade-in {
@@ -79,9 +81,9 @@ import { profile } from '~/data/site';
   font-size: 13px;
   line-height: 1.8;
   margin: 0;
-  padding: 28px;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 50%);
-  mask-image: linear-gradient(180deg, transparent 0%, white 50%);
+  padding: 32px 28px;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 20%);
+  mask-image: linear-gradient(180deg, transparent 0%, white 20%);
 }
 
 .hl-keyword {
@@ -154,14 +156,15 @@ import { profile } from '~/data/site';
     right: auto;
     top: auto;
     margin-top: 24px;
-    margin-right: -40px;
+    margin-left: -20px;
+    margin-right: -20px;
     margin-bottom: -60px;
+    border-radius: 0;
   }
 
   .hero-code pre {
     font-size: 10px;
     padding: 20px;
-    border-radius: 12px;
   }
 
   .title {
