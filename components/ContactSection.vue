@@ -25,7 +25,7 @@ import { profile, contact } from '~/data/site';
 <style scoped>
 .email {
   font-size: 22px;
-  color: var(--color-primary);
+  color: var(--color-text);
   text-decoration: none;
   font-weight: 500;
   border-bottom: 2px solid var(--color-primary);
