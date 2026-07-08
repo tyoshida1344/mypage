@@ -47,7 +47,7 @@ import { profile } from '~/data/site';
 }
 
 .hero-text {
-  max-width: 540px;
+  max-width: 55%;
 }
 
 .hero-code {
@@ -132,9 +132,10 @@ import { profile } from '~/data/site';
 
   .hero-code {
     position: relative;
-    right: -20px;
+    right: auto;
     top: auto;
     margin-top: 24px;
+    margin-right: -40px;
   }
 
   .hero-code pre {
