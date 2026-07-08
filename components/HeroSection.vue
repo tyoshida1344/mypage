@@ -59,6 +59,8 @@ import { profile } from '~/data/site';
   animation: code-fade-in 0.8s ease 0.3s both;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
   border-radius: 16px;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 }
 
 @keyframes code-fade-in {
@@ -78,8 +80,8 @@ import { profile } from '~/data/site';
   line-height: 1.8;
   margin: 0;
   padding: 28px;
-  -webkit-mask-image: linear-gradient(180deg, transparent 25%, white 100%);
-  mask-image: linear-gradient(180deg, transparent 25%, white 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 50%);
+  mask-image: linear-gradient(180deg, transparent 0%, white 50%);
 }
 
 .hl-keyword {
