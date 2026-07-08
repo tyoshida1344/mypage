@@ -14,7 +14,7 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, #e86a1f 0%, #ff7a2f 50%, #ffcfb0 100%);
+  background: linear-gradient(135deg, #fff3ea 0%, #ffe0c8 50%, #ffd1aa 100%);
 }
 
 .hero-inner {
@@ -27,7 +27,7 @@ import { profile } from '~/data/site';
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.14em;
-  color: #ffffff;
+  color: var(--color-text-label);
   margin-bottom: 24px;
 }
 
@@ -37,13 +37,13 @@ import { profile } from '~/data/site';
   line-height: 1.12;
   letter-spacing: 0.03em;
   margin: 0 0 26px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .lead {
   font-size: 16px;
   line-height: 2;
-  color: #ffffff;
+  color: var(--color-text-muted);
   margin: 0;
   font-weight: 300;
   max-width: 600px;
