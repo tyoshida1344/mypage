@@ -14,7 +14,7 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, #9c4810 0%, #b85510 40%, #ff9a50 100%);
+  background: linear-gradient(135deg, #cc4400 0%, #ff5500 40%, #ff8844 100%);
 }
 
 .hero-inner {
