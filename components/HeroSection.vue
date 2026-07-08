@@ -1,7 +1,13 @@
 <template>
   <div id="top" class="hero">
-    <div class="hero-code" aria-hidden="true">
-      <pre><span class="hl-keyword">interface</span> <span class="hl-type">Engineer</span> {
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="subtitle">{{ profile.title }}</div>
+        <h1 class="title">{{ profile.name }}</h1>
+        <p class="lead">{{ profile.lead }}</p>
+      </div>
+      <div class="hero-code" aria-hidden="true">
+        <pre><span class="hl-keyword">interface</span> <span class="hl-type">Engineer</span> {
   <span class="hl-prop">name</span>: <span class="hl-type">string</span>
   <span class="hl-prop">title</span>: <span class="hl-type">string</span>
   <span class="hl-prop">skills</span>: <span class="hl-type">string</span>[]
@@ -17,11 +23,7 @@
   ],
   <span class="hl-prop">available</span>: <span class="hl-bool">true</span>,
 }</pre>
-    </div>
-    <div class="hero-inner">
-      <div class="subtitle">{{ profile.title }}</div>
-      <h1 class="title">{{ profile.name }}</h1>
-      <p class="lead">{{ profile.lead }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -32,28 +34,38 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
-  position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #cc4400 0%, #ff5500 40%, #ff8844 100%);
 }
 
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 96px 80px 72px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .hero-code {
-  position: absolute;
-  top: 20px;
-  right: -80px;
+  flex-shrink: 0;
   pointer-events: none;
   user-select: none;
 }
 
 .hero-code pre {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 0;
-  background: #000;
-  opacity: 0.4;
-  padding: 30px;
-  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 28px;
+  border-radius: 16px;
 }
 
 .hl-keyword {
@@ -84,13 +96,6 @@ import { profile } from '~/data/site';
   color: #569cd6;
 }
 
-.hero-inner {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 96px 80px 72px;
-}
-
 .subtitle {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -101,7 +106,7 @@ import { profile } from '~/data/site';
 
 .title {
   font-weight: 700;
-  font-size: 68px;
+  font-size: 56px;
   line-height: 1.12;
   letter-spacing: 0.03em;
   margin: 0 0 26px;
@@ -114,22 +119,28 @@ import { profile } from '~/data/site';
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   font-weight: 300;
-  max-width: 600px;
 }
 
 @media (max-width: 768px) {
   .hero-inner {
+    flex-direction: column;
     padding: 48px 20px 36px;
+    gap: 24px;
   }
 
   .hero-code {
+    align-self: stretch;
+    overflow-x: auto;
+  }
+
+  .hero-code pre {
     font-size: 11px;
-    right: -40px;
-    top: 10px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .title {
-    font-size: 40px;
+    font-size: 36px;
     letter-spacing: 0.02em;
   }
 }
