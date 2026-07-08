@@ -80,11 +80,11 @@ import { profile } from '~/data/site';
   font-size: 13px;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .nav a:hover {
-  color: var(--color-text);
+  opacity: 0.6;
 }
 
 .nav-cta {

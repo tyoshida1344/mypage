@@ -47,12 +47,12 @@ import { works, links as siteLinks } from '~/data/site';
   border-radius: 100px;
   padding: 9px 18px;
   margin-bottom: 24px;
-  transition: border-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .github-link:hover,
 .github-link:focus-visible {
-  border-color: var(--color-border-tag);
+  opacity: 0.6;
 }
 
 .github-dots {

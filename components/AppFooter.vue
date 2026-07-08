@@ -39,11 +39,11 @@ import { profile, links as siteLinks } from '~/data/site';
 .footer-links a {
   color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: var(--color-text);
+  opacity: 0.6;
 }
 
 @media (max-width: 768px) {
