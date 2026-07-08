@@ -1,5 +1,5 @@
 <template>
-  <SectionWrapper id="about" number="01" title="自己紹介" :dot-color="'var(--color-accent-red)'">
+  <SectionWrapper id="about" number="01" title="自己紹介">
     <p class="about-text">{{ profile.about }}</p>
   </SectionWrapper>
 </template>

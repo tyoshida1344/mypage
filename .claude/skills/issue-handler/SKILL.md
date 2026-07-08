@@ -49,8 +49,10 @@ git checkout -b issues/<番号>
 
 まずイシュー本文と既存コメントを取得する。コメントには過去の議論や追加の決定が入っていることがあるので必ず読む。
 
+`--comments` フラグはターミナル環境によっては出力が空になることがあるため、JSON 形式で取得する:
+
 ```sh
-gh issue view <番号> --comments
+gh issue view <番号> --json title,body,comments,labels,state
 ```
 
 タイトル・本文・コメントから「何を新規に作るのか / 何を直すのか」「背景・動機」を把握する。

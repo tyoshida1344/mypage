@@ -2,7 +2,7 @@
   <div :id="id" class="section" :class="{ 'no-border': noBorder }">
     <div class="section-label">
       <span class="section-number">
-        <span class="dot" :style="{ background: dotColor }" />
+        <span class="dot" />
         {{ number }}
       </span>
       <div class="section-title">{{ title }}</div>
@@ -18,7 +18,6 @@ defineProps<{
   id: string;
   number: string;
   title: string;
-  dotColor: string;
   noBorder?: boolean;
 }>();
 </script>
@@ -55,6 +54,7 @@ defineProps<{
   border-radius: 50%;
   margin-right: 8px;
   vertical-align: middle;
+  background: var(--color-primary);
 }
 
 .section-title {

@@ -1,15 +1,10 @@
 <template>
-  <SectionWrapper
-    id="works"
-    number="04"
-    title="ポートフォリオ一覧"
-    :dot-color="'var(--color-accent-red)'"
-  >
+  <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
     <a :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
       <span class="github-dots">
-        <span class="dot dot-red" />
-        <span class="dot dot-blue" />
-        <span class="dot dot-green" />
+        <span class="dot dot-1" />
+        <span class="dot dot-2" />
+        <span class="dot dot-3" />
       </span>
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
@@ -43,7 +38,7 @@ import { works, links as siteLinks } from '~/data/site';
   font-size: 13px;
   color: var(--color-text);
   text-decoration: none;
-  border: 1px solid var(--color-border-lighter);
+  border: 1px solid var(--color-border);
   border-radius: 100px;
   padding: 9px 18px;
   margin-bottom: 24px;
@@ -66,16 +61,16 @@ import { works, links as siteLinks } from '~/data/site';
   border-radius: 50%;
 }
 
-.dot-red {
-  background: var(--color-accent-red);
+.dot-1 {
+  background: var(--color-accent-dot-1);
 }
 
-.dot-blue {
-  background: var(--color-accent-blue);
+.dot-2 {
+  background: var(--color-accent-dot-2);
 }
 
-.dot-green {
-  background: var(--color-accent-green);
+.dot-3 {
+  background: var(--color-accent-dot-3);
 }
 
 .arrow {
@@ -104,7 +99,7 @@ import { works, links as siteLinks } from '~/data/site';
 
 .work-card:hover,
 .work-card:focus-visible {
-  border-color: var(--color-border-tag);
+  border-color: var(--color-primary-light);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -113,7 +108,7 @@ import { works, links as siteLinks } from '~/data/site';
   height: 78px;
   border-radius: 4px;
   flex: none;
-  background: repeating-linear-gradient(135deg, #f1eee9, #f1eee9 6px, #e7e3dc 6px, #e7e3dc 12px);
+  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #fff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +117,7 @@ import { works, links as siteLinks } from '~/data/site';
 .work-image-text {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: #a8a39c;
+  color: var(--color-text-label);
   letter-spacing: 0.06em;
 }
 

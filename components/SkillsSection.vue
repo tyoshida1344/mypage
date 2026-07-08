@@ -1,14 +1,9 @@
 <template>
-  <SectionWrapper
-    id="skills"
-    number="02"
-    title="技術スキル"
-    :dot-color="'var(--color-accent-blue)'"
-  >
+  <SectionWrapper id="skills" number="02" title="技術スキル">
     <div class="skills-grid">
       <div v-for="skill in skills" :key="skill.label" class="skill-card">
         <div class="skill-label">
-          <span class="skill-dot" :style="{ background: colorMap[skill.color] }" />
+          <span class="skill-dot" />
           {{ skill.label }}
         </div>
         <div class="skill-items">{{ skill.items }}</div>
@@ -19,13 +14,6 @@
 
 <script setup lang="ts">
 import { skills } from '~/data/site';
-
-const colorMap: Record<string, string> = {
-  red: 'var(--color-accent-red)',
-  blue: 'var(--color-accent-blue)',
-  green: 'var(--color-accent-green)',
-  gray: 'var(--color-accent-gray)',
-};
 </script>
 
 <style scoped>
@@ -39,6 +27,12 @@ const colorMap: Record<string, string> = {
   border: 1px solid var(--color-border-light);
   border-radius: 6px;
   padding: 16px 18px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .skill-label {
@@ -55,6 +49,7 @@ const colorMap: Record<string, string> = {
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  background: var(--color-primary);
 }
 
 .skill-items {

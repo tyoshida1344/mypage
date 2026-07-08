@@ -1,10 +1,5 @@
 <template>
-  <SectionWrapper
-    id="product"
-    number="03"
-    title="提供サービス"
-    :dot-color="'var(--color-accent-green)'"
-  >
+  <SectionWrapper id="product" number="03" title="提供サービス">
     <div class="service-list">
       <div v-for="service in services" :key="service.name" class="service-card">
         <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
@@ -50,13 +45,13 @@ import { services } from '~/data/site';
 }
 
 .service-card:hover {
-  border-color: var(--color-border-tag);
+  border-color: var(--color-primary-light);
   box-shadow: var(--shadow-card-hover);
 }
 
 .service-image {
   height: 320px;
-  background: repeating-linear-gradient(135deg, #f1eee9, #f1eee9 6px, #e7e3dc 6px, #e7e3dc 12px);
+  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #fff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +60,7 @@ import { services } from '~/data/site';
 .service-image-text {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #a8a39c;
+  color: var(--color-text-label);
   letter-spacing: 0.06em;
 }
 
@@ -84,8 +79,8 @@ import { services } from '~/data/site';
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
-  color: var(--color-text);
-  border: 1px solid var(--color-border-tag);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-light);
   border-radius: 100px;
   padding: 4px 11px;
   white-space: nowrap;
@@ -131,8 +126,8 @@ import { services } from '~/data/site';
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--color-text);
-  color: var(--color-surface);
+  background: var(--color-primary);
+  color: #ffffff;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -143,7 +138,7 @@ import { services } from '~/data/site';
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: var(--color-text-hover);
+  background: var(--color-primary-dark);
 }
 
 .arrow {
