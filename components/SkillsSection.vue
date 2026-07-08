@@ -29,12 +29,6 @@ import { skills } from '~/data/site';
   border: 1px solid var(--color-border-light);
   border-radius: 8px;
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.skill-card:hover {
-  border-color: var(--color-accent-light);
-  box-shadow: var(--shadow-card-hover);
 }
 
 .card-titlebar {
