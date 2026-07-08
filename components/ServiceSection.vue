@@ -7,8 +7,8 @@
   >
     <div class="service-list">
       <div v-for="service in services" :key="service.name" class="service-card">
-        <div class="service-image">
-          <span class="service-image-text">デモGIF / スクリーンショット</span>
+        <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
+          <span class="service-image-text" aria-hidden="true">デモGIF / スクリーンショット</span>
         </div>
         <div class="service-body">
           <div class="service-tags">
@@ -19,7 +19,7 @@
           <p class="service-desc">{{ service.description }}</p>
           <div class="service-tech">{{ service.tech }}</div>
           <div class="service-actions">
-            <a :href="service.link" class="btn-primary">
+            <a :href="service.link" class="btn-primary" target="_blank" rel="noopener noreferrer">
               {{ service.linkLabel }}<span class="arrow">↗</span>
             </a>
             <span class="service-note">{{ service.note }}</span>

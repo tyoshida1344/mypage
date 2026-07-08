@@ -2,15 +2,17 @@
   <div class="page">
     <div class="container">
       <AppHeader />
-      <HeroSection />
-      <div class="sections">
-        <AboutSection />
-        <SkillsSection />
-        <ServiceSection />
-        <WorksSection />
-        <CareerSection />
-        <ContactSection />
-      </div>
+      <main>
+        <HeroSection />
+        <div class="sections">
+          <AboutSection />
+          <SkillsSection />
+          <ServiceSection />
+          <WorksSection />
+          <CareerSection />
+          <ContactSection />
+        </div>
+      </main>
       <AppFooter />
     </div>
   </div>

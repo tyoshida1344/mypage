@@ -5,7 +5,7 @@
     title="ポートフォリオ一覧"
     :dot-color="'var(--color-accent-red)'"
   >
-    <a :href="siteLinks.github" class="github-link">
+    <a :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
       <span class="github-dots">
         <span class="dot dot-red" />
         <span class="dot dot-blue" />
@@ -14,9 +14,9 @@
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
     <div class="works-list">
-      <a v-for="(work, i) in works" :key="i" :href="work.link" class="work-card">
-        <div class="work-image">
-          <span class="work-image-text">作品画像</span>
+      <a v-for="(work, i) in works" :key="i" :href="work.link" class="work-card" target="_blank" rel="noopener noreferrer">
+        <div class="work-image" role="img" :aria-label="`${work.title}のイメージ画像`">
+          <span class="work-image-text" aria-hidden="true">作品画像</span>
         </div>
         <div class="work-body">
           <div class="work-header">
