@@ -39,6 +39,12 @@ const colorMap: Record<string, string> = {
   border: 1px solid var(--color-border-light);
   border-radius: 6px;
   padding: 16px 18px;
+  transition: background 0.2s ease;
+}
+
+.skill-card:hover {
+  background: rgba(0, 0, 0, 0.015);
+  cursor: default;
 }
 
 .skill-label {

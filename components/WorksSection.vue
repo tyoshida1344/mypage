@@ -47,6 +47,12 @@ import { works, links as siteLinks } from '~/data/site';
   border-radius: 100px;
   padding: 9px 18px;
   margin-bottom: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.github-link:hover,
+.github-link:focus-visible {
+  border-color: var(--color-border-tag);
 }
 
 .github-dots {
@@ -93,6 +99,13 @@ import { works, links as siteLinks } from '~/data/site';
   text-decoration: none;
   color: var(--color-text);
   align-items: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+  border-color: var(--color-border-tag);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .work-image {

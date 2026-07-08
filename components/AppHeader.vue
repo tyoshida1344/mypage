@@ -80,6 +80,11 @@ import { profile } from '~/data/site';
   font-size: 13px;
   color: var(--color-text-secondary);
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--color-text);
 }
 
 .nav-cta {
@@ -87,6 +92,11 @@ import { profile } from '~/data/site';
   background: var(--color-text);
   padding: 9px 18px;
   border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--color-text-hover);
 }
 
 @media (max-width: 768px) {

@@ -46,6 +46,12 @@ import { services } from '~/data/site';
   border-radius: 8px;
   overflow: hidden;
   max-width: 560px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: var(--color-border-tag);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .service-image {
@@ -132,6 +138,12 @@ import { services } from '~/data/site';
   font-weight: 500;
   padding: 12px 22px;
   border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--color-text-hover);
 }
 
 .arrow {
