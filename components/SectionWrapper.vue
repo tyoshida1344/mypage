@@ -54,7 +54,7 @@ defineProps<{
   border-radius: 50%;
   margin-right: 8px;
   vertical-align: middle;
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 .section-title {

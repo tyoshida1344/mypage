@@ -45,13 +45,13 @@ import { services } from '~/data/site';
 }
 
 .service-card:hover {
-  border-color: var(--color-primary-light);
+  border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
 .service-image {
   height: 320px;
-  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, #fff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +80,7 @@ import { services } from '~/data/site';
   font-size: 10px;
   letter-spacing: 0.08em;
   color: var(--color-primary);
-  border: 1px solid var(--color-primary-light);
+  border: 1px solid var(--color-accent-light);
   border-radius: 100px;
   padding: 4px 11px;
   white-space: nowrap;

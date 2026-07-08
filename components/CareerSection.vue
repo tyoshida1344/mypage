@@ -39,7 +39,7 @@ import { career } from '~/data/site';
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: var(--color-primary-light);
+  background: var(--color-accent-light);
 }
 
 .phase-header {
@@ -54,7 +54,7 @@ import { career } from '~/data/site';
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 .phase-company {

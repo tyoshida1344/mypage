@@ -99,7 +99,7 @@ import { works, links as siteLinks } from '~/data/site';
 
 .work-card:hover,
 .work-card:focus-visible {
-  border-color: var(--color-primary-light);
+  border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -108,7 +108,7 @@ import { works, links as siteLinks } from '~/data/site';
   height: 78px;
   border-radius: 4px;
   flex: none;
-  background: linear-gradient(135deg, var(--color-primary-bg) 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, #fff 100%);
   display: flex;
   align-items: center;
   justify-content: center;

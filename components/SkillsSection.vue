@@ -31,7 +31,7 @@ import { skills } from '~/data/site';
 }
 
 .skill-card:hover {
-  border-color: var(--color-primary-light);
+  border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -49,7 +49,7 @@ import { skills } from '~/data/site';
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 .skill-items {
