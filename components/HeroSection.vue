@@ -44,7 +44,7 @@ import { profile } from '~/data/site';
   font-family: var(--font-mono);
   font-size: 14px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.5);
   white-space: pre;
   pointer-events: none;
   user-select: none;
