@@ -1,21 +1,21 @@
 <template>
   <div id="top" class="hero">
     <div class="hero-code" aria-hidden="true">
-      <pre>interface Engineer {
-  name: string
-  title: string
-  skills: string[]
-  available: boolean
+      <pre><span class="hl-keyword">interface</span> <span class="hl-type">Engineer</span> {
+  <span class="hl-prop">name</span>: <span class="hl-type">string</span>
+  <span class="hl-prop">title</span>: <span class="hl-type">string</span>
+  <span class="hl-prop">skills</span>: <span class="hl-type">string</span>[]
+  <span class="hl-prop">available</span>: <span class="hl-type">boolean</span>
 }
 
-export const profile: Engineer = {
-  name: "{{ profile.name }}",
-  title: "{{ profile.title }}",
-  skills: [
-    "TypeScript", "Vue.js",
-    "Nuxt", "Node.js",
+<span class="hl-keyword">export const</span> <span class="hl-var">profile</span>: <span class="hl-type">Engineer</span> <span class="hl-op">=</span> {
+  <span class="hl-prop">name</span>: <span class="hl-string">"{{ profile.name }}"</span>,
+  <span class="hl-prop">title</span>: <span class="hl-string">"{{ profile.title }}"</span>,
+  <span class="hl-prop">skills</span>: [
+    <span class="hl-string">"TypeScript"</span>, <span class="hl-string">"Vue.js"</span>,
+    <span class="hl-string">"Nuxt"</span>, <span class="hl-string">"Node.js"</span>,
   ],
-  available: true,
+  <span class="hl-prop">available</span>: <span class="hl-bool">true</span>,
 }</pre>
     </div>
     <div class="hero-inner">
@@ -40,14 +40,48 @@ import { profile } from '~/data/site';
 .hero-code {
   position: absolute;
   top: 20px;
-  right: -20px;
+  right: -80px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-code pre {
   font-family: var(--font-mono);
   font-size: 14px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.5);
-  white-space: pre;
-  pointer-events: none;
-  user-select: none;
+  margin: 0;
+  background: #000;
+  opacity: 0.4;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.hl-keyword {
+  color: #c586c0;
+}
+
+.hl-type {
+  color: #4ec9b0;
+}
+
+.hl-prop {
+  color: #9cdcfe;
+}
+
+.hl-var {
+  color: #4fc1ff;
+}
+
+.hl-op {
+  color: #d4d4d4;
+}
+
+.hl-string {
+  color: #ce9178;
+}
+
+.hl-bool {
+  color: #569cd6;
 }
 
 .hero-inner {
