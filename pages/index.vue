@@ -18,7 +18,10 @@
 
 <style scoped>
 .page {
-  background: var(--color-bg);
+  background:
+    radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-color: var(--color-bg);
   min-height: 100vh;
   font-family: var(--font-sans);
   color: var(--color-text);

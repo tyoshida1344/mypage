@@ -2,8 +2,7 @@
   <div :id="id" class="section" :class="{ 'no-border': noBorder }">
     <div class="section-label">
       <span class="section-number">
-        <span class="dot" />
-        {{ number }}
+        <span class="slash">//</span> {{ number }}
       </span>
       <div class="section-title">{{ title }}</div>
     </div>
@@ -47,14 +46,9 @@ defineProps<{
   color: var(--color-text-secondary);
 }
 
-.dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
-  background: var(--color-accent);
+.slash {
+  color: var(--color-accent);
+  margin-right: 4px;
 }
 
 .section-title {
