@@ -75,7 +75,7 @@ import { profile } from '~/data/site';
   font-size: 13px;
   line-height: 1.8;
   margin: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.55) 100%);
   padding: 28px;
   border-radius: 16px;
 }
