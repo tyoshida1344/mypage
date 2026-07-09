@@ -9,7 +9,14 @@
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
     <div class="works-list">
-      <a v-for="(work, i) in works" :key="i" :href="work.link" class="work-card" target="_blank" rel="noopener noreferrer">
+      <a
+        v-for="(work, i) in works"
+        :key="i"
+        :href="work.link"
+        class="work-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="work-image" role="img" :aria-label="`${work.title}のイメージ画像`">
           <span class="work-image-text" aria-hidden="true">作品画像</span>
         </div>
@@ -96,7 +103,9 @@ import { works, links as siteLinks } from '~/data/site';
   color: var(--color-text);
   align-items: center;
   background-color: var(--color-bg);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .work-card:hover,

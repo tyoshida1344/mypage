@@ -1,7 +1,14 @@
 <template>
   <SectionWrapper id="product" number="03" title="提供サービス">
     <div class="service-list">
-      <a v-for="service in services" :key="service.name" :href="service.link" class="service-card" target="_blank" rel="noopener noreferrer">
+      <a
+        v-for="service in services"
+        :key="service.name"
+        :href="service.link"
+        class="service-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
           <span class="service-image-text" aria-hidden="true">デモGIF / スクリーンショット</span>
         </div>
@@ -14,9 +21,7 @@
           <p class="service-desc">{{ service.description }}</p>
           <div class="service-tech">{{ service.tech }}</div>
           <div class="service-actions">
-            <span class="btn-primary">
-              {{ service.linkLabel }}<span class="arrow">↗</span>
-            </span>
+            <span class="btn-primary"> {{ service.linkLabel }}<span class="arrow">↗</span> </span>
             <span class="service-note">{{ service.note }}</span>
           </div>
         </div>
@@ -46,7 +51,9 @@ import { services } from '~/data/site';
   color: inherit;
   cursor: pointer;
   background-color: var(--color-bg);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .service-card:hover,

@@ -1,9 +1,7 @@
 <template>
   <section :id="id" class="section" :class="{ 'no-border': noBorder }">
     <div class="section-label">
-      <span class="section-number">
-        <span class="slash">//</span> {{ number }}
-      </span>
+      <span class="section-number"> <span class="slash">//</span> {{ number }} </span>
       <h2 class="section-title">{{ title }}</h2>
     </div>
     <div class="section-content">

@@ -203,7 +203,9 @@ onUnmounted(() => {
   height: 2px;
   background: var(--color-text);
   border-radius: 1px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .hamburger.active .hamburger-line:nth-child(1) {

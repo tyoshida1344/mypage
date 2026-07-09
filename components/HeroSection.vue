@@ -3,10 +3,10 @@
     <div class="hero-inner">
       <div class="hero-text">
         <div class="subtitle fade-in">{{ profile.title }}</div>
-        <h1 class="title fade-in d1">{{ profile.name }}</h1>
-        <p class="lead fade-in d2">{{ profile.lead }}</p>
+        <h1 class="title fade-in delay-short">{{ profile.name }}</h1>
+        <p class="lead fade-in delay-short">{{ profile.lead }}</p>
       </div>
-      <div class="hero-code fade-in d3" aria-hidden="true">
+      <div class="hero-code fade-in-right delay-long" aria-hidden="true">
         <pre><span class="kw">interface</span> <span class="ty">Engineer</span> {
   <span class="pr">name</span>: <span class="ty">string</span>
   <span class="pr">title</span>: <span class="ty">string</span>
@@ -55,7 +55,7 @@ import { profile } from '~/data/site';
   top: 0;
   pointer-events: none;
   user-select: none;
-  background: linear-gradient(180deg, transparent 0%, #000 20%);
+  background: linear-gradient(to right, transparent 0%, #000 50%);
 }
 
 .hero-code::after {
@@ -65,7 +65,7 @@ import { profile } from '~/data/site';
   left: 100%;
   width: 100vw;
   height: 100%;
-  background: inherit;
+  background: #000;
 }
 
 .hero-code pre {
@@ -73,26 +73,46 @@ import { profile } from '~/data/site';
   font-size: 13px;
   line-height: 1.8;
   margin: 0;
-  padding: 32px 28px;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 20%);
-  mask-image: linear-gradient(180deg, transparent 0%, white 20%);
+  padding: 32px 28px 32px 180px;
 }
 
-.kw { color: #c586c0; }
-.ty { color: #4ec9b0; }
-.pr { color: #9cdcfe; }
-.vr { color: #4fc1ff; }
-.op { color: #d4d4d4; }
-.st { color: #ce9178; }
-.bl { color: #569cd6; }
-
-.fade-in {
-  animation: fade-up 0.8s ease both;
+.kw {
+  color: #c586c0;
+}
+.ty {
+  color: #4ec9b0;
+}
+.pr {
+  color: #9cdcfe;
+}
+.vr {
+  color: #4fc1ff;
+}
+.op {
+  color: #d4d4d4;
+}
+.st {
+  color: #ce9178;
+}
+.bl {
+  color: #569cd6;
 }
 
-.d1 { animation-delay: 0.1s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.3s; }
+.fade-in,
+.fade-in-right {
+  animation: fade-up 1s ease-in-out both;
+}
+
+.fade-in-right {
+  animation-name: fade-left;
+}
+
+.delay-short {
+  animation-delay: 0.1s;
+}
+.delay-long {
+  animation-delay: 0.5s;
+}
 
 @keyframes fade-up {
   from {
@@ -102,6 +122,17 @@ import { profile } from '~/data/site';
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -145,11 +176,22 @@ import { profile } from '~/data/site';
     top: auto;
     margin: 24px -20px -60px;
     border-radius: 0;
+    background: linear-gradient(180deg, transparent 0%, #000 50%);
+  }
+
+  .hero-code::after {
+    display: none;
+  }
+
+  .fade-in-right {
+    animation-name: fade-up;
   }
 
   .hero-code pre {
     font-size: 10px;
     padding: 20px;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 50%);
+    mask-image: linear-gradient(180deg, transparent 0%, white 50%);
   }
 
   .title {

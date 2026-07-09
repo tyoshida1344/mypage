@@ -1,10 +1,5 @@
 <template>
-  <SectionWrapper
-    id="contact"
-    number="06"
-    title="連絡先"
-    no-border
-  >
+  <SectionWrapper id="contact" number="06" title="連絡先" no-border>
     <a :href="`mailto:${profile.email}`" class="email">
       {{ profile.email }}
     </a>
