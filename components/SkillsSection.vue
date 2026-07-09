@@ -37,7 +37,7 @@ import { skills } from '~/data/site';
   align-items: center;
   gap: 6px;
   padding: 10px 16px;
-  background: #fafafa;
+  background: var(--color-surface);
   border-bottom: 1px solid var(--color-border-light);
 }
 

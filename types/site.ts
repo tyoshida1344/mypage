@@ -8,7 +8,6 @@ export interface Profile {
 
 export interface Skill {
   label: string;
-  color: string;
   items: string;
 }
 

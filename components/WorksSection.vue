@@ -110,7 +110,7 @@ import { works, links as siteLinks } from '~/data/site';
   height: 78px;
   border-radius: 4px;
   flex: none;
-  background: linear-gradient(135deg, var(--color-accent-bg) 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;

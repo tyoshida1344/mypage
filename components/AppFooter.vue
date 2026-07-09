@@ -4,7 +4,7 @@
       <div class="copyright">© 2026 {{ profile.name }}</div>
       <div class="footer-links">
         <a :href="`mailto:${profile.email}`">メール</a>
-        <a :href="siteLinks.github" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a :href="siteLinks.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href="#top">トップへ ↑</a>
       </div>
     </div>
@@ -47,6 +47,8 @@ import { profile, links as siteLinks } from '~/data/site';
 .footer-links a {
   color: var(--color-text-muted);
   text-decoration: none;
+  padding: 12px 8px;
+  margin: -12px -8px;
   transition: opacity 0.2s ease;
 }
 

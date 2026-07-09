@@ -16,7 +16,7 @@ const messages: Record<number, string> = {
   500: 'サーバーエラーが発生しました',
 };
 
-const message = computed(() => messages[props.error?.statusCode ?? 500] ?? 'エラーが発生しました');
+const message = messages[props.error?.statusCode ?? 500] ?? 'エラーが発生しました';
 </script>
 
 <style scoped>

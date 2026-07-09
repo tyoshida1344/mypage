@@ -49,14 +49,15 @@ import { services } from '~/data/site';
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card:focus-visible {
   border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
 .service-image {
   height: 320px;
-  background: linear-gradient(135deg, var(--color-accent-bg) 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +133,7 @@ import { services } from '~/data/site';
   align-items: center;
   gap: 9px;
   background: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-surface);
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;

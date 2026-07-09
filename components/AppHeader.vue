@@ -53,7 +53,8 @@ const isScrolled = ref(false);
 const menuOpen = ref(false);
 
 function onScroll() {
-  isScrolled.value = window.scrollY > 10;
+  const scrolled = window.scrollY > 10;
+  if (isScrolled.value !== scrolled) isScrolled.value = scrolled;
 }
 
 function toggleMenu() {

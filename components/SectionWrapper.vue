@@ -1,15 +1,15 @@
 <template>
-  <div :id="id" class="section" :class="{ 'no-border': noBorder }">
+  <section :id="id" class="section" :class="{ 'no-border': noBorder }">
     <div class="section-label">
       <span class="section-number">
         <span class="slash">//</span> {{ number }}
       </span>
-      <div class="section-title">{{ title }}</div>
+      <h2 class="section-title">{{ title }}</h2>
     </div>
     <div class="section-content">
       <slot />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -55,9 +55,10 @@ defineProps<{
 .section-title {
   font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: normal;
   letter-spacing: 0.14em;
   color: var(--color-text-label);
-  margin-top: 8px;
+  margin: 8px 0 0;
 }
 
 .section-content {
