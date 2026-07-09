@@ -57,15 +57,12 @@ import { profile } from '~/data/site';
   pointer-events: none;
   user-select: none;
   animation: code-fade-in 0.8s ease 0.3s both;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, black 60%),
-    linear-gradient(180deg, transparent 0%, black 20%);
-  -webkit-mask-composite: destination-in;
-  mask-image:
-    linear-gradient(to right, transparent 0%, black 60%),
-    linear-gradient(180deg, transparent 0%, black 20%);
-  mask-composite: intersect;
-  background: #000;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .hero-code::after {
@@ -75,9 +72,7 @@ import { profile } from '~/data/site';
   left: 100%;
   width: 100vw;
   height: 100%;
-  background: #000;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 20%);
-  mask-image: linear-gradient(180deg, transparent 0%, black 20%);
+  background: inherit;
 }
 
 @keyframes code-fade-in {
