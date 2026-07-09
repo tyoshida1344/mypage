@@ -2,26 +2,26 @@
   <div id="top" class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="subtitle">{{ profile.title }}</div>
-        <h1 class="title">{{ profile.name }}</h1>
-        <p class="lead">{{ profile.lead }}</p>
+        <div class="subtitle fade-in">{{ profile.title }}</div>
+        <h1 class="title fade-in d1">{{ profile.name }}</h1>
+        <p class="lead fade-in d2">{{ profile.lead }}</p>
       </div>
-      <div class="hero-code" aria-hidden="true">
-        <pre><span class="hl-keyword">interface</span> <span class="hl-type">Engineer</span> {
-  <span class="hl-prop">name</span>: <span class="hl-type">string</span>
-  <span class="hl-prop">title</span>: <span class="hl-type">string</span>
-  <span class="hl-prop">skills</span>: <span class="hl-type">string</span>[]
-  <span class="hl-prop">available</span>: <span class="hl-type">boolean</span>
+      <div class="hero-code fade-in d3" aria-hidden="true">
+        <pre><span class="kw">interface</span> <span class="ty">Engineer</span> {
+  <span class="pr">name</span>: <span class="ty">string</span>
+  <span class="pr">title</span>: <span class="ty">string</span>
+  <span class="pr">skills</span>: <span class="ty">string</span>[]
+  <span class="pr">available</span>: <span class="ty">boolean</span>
 }
 
-<span class="hl-keyword">export const</span> <span class="hl-var">profile</span>: <span class="hl-type">Engineer</span> <span class="hl-op">=</span> {
-  <span class="hl-prop">name</span>: <span class="hl-string">"{{ profile.name }}"</span>,
-  <span class="hl-prop">title</span>: <span class="hl-string">"{{ profile.title }}"</span>,
-  <span class="hl-prop">skills</span>: [
-    <span class="hl-string">"TypeScript"</span>, <span class="hl-string">"Vue.js"</span>,
-    <span class="hl-string">"Nuxt"</span>, <span class="hl-string">"Node.js"</span>,
+<span class="kw">export const</span> <span class="vr">profile</span>: <span class="ty">Engineer</span> <span class="op">=</span> {
+  <span class="pr">name</span>: <span class="st">"{{ profile.name }}"</span>,
+  <span class="pr">title</span>: <span class="st">"{{ profile.title }}"</span>,
+  <span class="pr">skills</span>: [
+    <span class="st">"TypeScript"</span>, <span class="st">"Vue.js"</span>,
+    <span class="st">"Nuxt"</span>, <span class="st">"Node.js"</span>,
   ],
-  <span class="hl-prop">available</span>: <span class="hl-bool">true</span>,
+  <span class="pr">available</span>: <span class="bl">true</span>,
 }</pre>
       </div>
     </div>
@@ -34,7 +34,6 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
-  position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #b33a00 0%, #ff5500 40%, #ffaa55 100%);
 }
@@ -56,13 +55,7 @@ import { profile } from '~/data/site';
   top: 0;
   pointer-events: none;
   user-select: none;
-  animation: code-fade-in 0.8s ease 0.3s both;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: linear-gradient(180deg, transparent 0%, #000 20%);
 }
 
 .hero-code::after {
@@ -75,17 +68,6 @@ import { profile } from '~/data/site';
   background: inherit;
 }
 
-@keyframes code-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .hero-code pre {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -96,32 +78,31 @@ import { profile } from '~/data/site';
   mask-image: linear-gradient(180deg, transparent 0%, white 20%);
 }
 
-.hl-keyword {
-  color: #c586c0;
+.kw { color: #c586c0; }
+.ty { color: #4ec9b0; }
+.pr { color: #9cdcfe; }
+.vr { color: #4fc1ff; }
+.op { color: #d4d4d4; }
+.st { color: #ce9178; }
+.bl { color: #569cd6; }
+
+.fade-in {
+  animation: fade-up 0.8s ease both;
 }
 
-.hl-type {
-  color: #4ec9b0;
-}
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.3s; }
 
-.hl-prop {
-  color: #9cdcfe;
-}
-
-.hl-var {
-  color: #4fc1ff;
-}
-
-.hl-op {
-  color: #d4d4d4;
-}
-
-.hl-string {
-  color: #ce9178;
-}
-
-.hl-bool {
-  color: #569cd6;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
@@ -130,7 +111,6 @@ import { profile } from '~/data/site';
   letter-spacing: 0.14em;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 24px;
-  animation: code-fade-in 0.8s ease both;
 }
 
 .title {
@@ -139,8 +119,7 @@ import { profile } from '~/data/site';
   line-height: 1.12;
   letter-spacing: 0.03em;
   margin: 0 0 26px;
-  color: #ffffff;
-  animation: code-fade-in 0.8s ease 0.1s both;
+  color: #fff;
 }
 
 .lead {
@@ -149,7 +128,6 @@ import { profile } from '~/data/site';
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   font-weight: 300;
-  animation: code-fade-in 0.8s ease 0.2s both;
 }
 
 @media (max-width: 768px) {
@@ -165,10 +143,7 @@ import { profile } from '~/data/site';
     position: relative;
     right: auto;
     top: auto;
-    margin-top: 24px;
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-bottom: -60px;
+    margin: 24px -20px -60px;
     border-radius: 0;
   }
 
