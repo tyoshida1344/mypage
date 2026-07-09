@@ -159,6 +159,7 @@ import { profile } from '~/data/site';
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
   font-weight: 300;
+  white-space: pre-line;
 }
 
 @media (max-width: 768px) {

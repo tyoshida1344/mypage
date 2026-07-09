@@ -2,9 +2,9 @@
   "siteUrl": "https://triver-selfy.netlify.app",
   "profile": {
     "name": "吉田 大河",
-    "title": "バックエンドエンジニア / 個人事業主",
+    "title": "Web・モバイルエンジニア / 個人事業主",
     "email": "t.yoshida1344@gmail.com",
-    "lead": "新しい技術にもすぐ対応し、サーバーサイド・Web・モバイルまで一貫して開発。ツールや自動化で開発効率を最大化します。",
+    "lead": "サーバーサイド・Web・モバイルまで一貫して開発。\n新しい技術にもすぐ対応し、ツールや自動化で開発効率を最大化します。",
     "about": "SES企業でのバックエンド開発を経て、2024年より個人事業主として独立。Java/Kotlinによるサーバーサイド開発を軸に、Vue・Reactでのフロントエンド、Flutter・React Nativeでのモバイルアプリまで一貫して対応します。新しい技術や未経験の領域でも短期間で戦力になれるキャッチアップの速さが持ち味です。『動くだけ』で終わらせず、保守しやすく使いやすいプロダクトを届けることを大切にしています。"
   },
   "skills": [
@@ -45,9 +45,25 @@
       "link": "https://dot-work.netlify.app",
       "linkLabel": "サイトを見る",
       "note": ""
+    },
+    {
+      "type": "Webアプリ",
+      "category": "個人開発",
+      "name": "ノンクリツール",
+      "description": "画像編集・テキスト変換・計算ツールなどをダッシュボード上で自由にレイアウトして使えるオールインワンツールサービスです。",
+      "tech": "Nuxt 4 · TypeScript · Tailwind CSS · Supabase",
+      "link": "https://toolforus.netlify.app/",
+      "linkLabel": "サイトを見る",
+      "note": ""
     }
   ],
   "works": [
+    {
+      "title": "ポートフォリオサイト",
+      "description": "本サイト。Nuxt 3 で構築した個人ポートフォリオサイトです。",
+      "tech": "Nuxt 3 · Vue 3 · TypeScript",
+      "link": "https://github.com/tyoshida1344/mypage"
+    },
     {
       "title": "便利ツール オールインワン",
       "description": "文字列生成・エポック変換・カラー変換・翻訳・正規表現など、10以上の開発ツールをポップアップからワンクリックで利用できるChrome拡張機能。",
@@ -63,7 +79,7 @@
   ],
   "career": [
     {
-      "company": "SES企業（社名非公開）",
+      "company": "SES企業",
       "period": "2020.04 – 2023.08",
       "items": [
         {
