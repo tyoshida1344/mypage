@@ -132,14 +132,28 @@ onUnmounted(() => {
 }
 
 .nav a:not(.nav-cta) {
+  position: relative;
   font-size: 13px;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  padding-bottom: 4px;
 }
 
-.nav a:not(.nav-cta):hover {
-  opacity: 0.6;
+.nav a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav a:not(.nav-cta):hover::after {
+  transform: scaleX(1);
 }
 
 .nav-cta {
