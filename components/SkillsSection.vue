@@ -3,9 +3,7 @@
     <div class="skills-grid">
       <div v-for="skill in skills" :key="skill.label" class="skill-card">
         <div class="card-titlebar">
-          <span class="card-dot" />
-          <span class="card-dot" />
-          <span class="card-dot" />
+          <DotIndicator size="8px" gap="6px" />
           <span class="card-title">{{ skill.label }}</span>
         </div>
         <div class="skill-items">{{ skill.items }}</div>
@@ -39,22 +37,6 @@ import { skills } from '~/data/site';
   padding: 10px 16px;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border-light);
-}
-
-.card-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  opacity: 0.5;
-}
-
-.card-dot:first-child {
-  opacity: 1;
-}
-
-.card-dot:nth-child(2) {
-  opacity: 0.7;
 }
 
 .card-title {
