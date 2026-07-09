@@ -1,20 +1,18 @@
 <template>
-  <SectionWrapper
-    id="works"
-    number="04"
-    title="ポートフォリオ一覧"
-    :dot-color="'var(--color-accent-red)'"
-  >
+  <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
     <a :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
-      <span class="github-dots">
-        <span class="dot dot-red" />
-        <span class="dot dot-blue" />
-        <span class="dot dot-green" />
-      </span>
+      <DotIndicator size="6px" gap="4px" />
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
     <div class="works-list">
-      <a v-for="(work, i) in works" :key="i" :href="work.link" class="work-card" target="_blank" rel="noopener noreferrer">
+      <a
+        v-for="(work, i) in works"
+        :key="i"
+        :href="work.link"
+        class="work-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="work-image" role="img" :aria-label="`${work.title}のイメージ画像`">
           <span class="work-image-text" aria-hidden="true">作品画像</span>
         </div>
@@ -43,39 +41,17 @@ import { works, links as siteLinks } from '~/data/site';
   font-size: 13px;
   color: var(--color-text);
   text-decoration: none;
-  border: 1px solid var(--color-border-lighter);
+  border: 1px solid var(--color-border);
   border-radius: 100px;
   padding: 9px 18px;
   margin-bottom: 24px;
+  background-color: var(--color-bg);
   transition: opacity 0.2s ease;
 }
 
 .github-link:hover,
 .github-link:focus-visible {
   opacity: 0.6;
-}
-
-.github-dots {
-  display: flex;
-  gap: 4px;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.dot-red {
-  background: var(--color-accent-red);
-}
-
-.dot-blue {
-  background: var(--color-accent-blue);
-}
-
-.dot-green {
-  background: var(--color-accent-green);
 }
 
 .arrow {
@@ -99,12 +75,15 @@ import { works, links as siteLinks } from '~/data/site';
   text-decoration: none;
   color: var(--color-text);
   align-items: center;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--color-bg);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .work-card:hover,
 .work-card:focus-visible {
-  border-color: var(--color-border-tag);
+  border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
@@ -113,7 +92,7 @@ import { works, links as siteLinks } from '~/data/site';
   height: 78px;
   border-radius: 4px;
   flex: none;
-  background: repeating-linear-gradient(135deg, #f1eee9, #f1eee9 6px, #e7e3dc 6px, #e7e3dc 12px);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +101,7 @@ import { works, links as siteLinks } from '~/data/site';
 .work-image-text {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: #a8a39c;
+  color: var(--color-text-label);
   letter-spacing: 0.06em;
 }
 

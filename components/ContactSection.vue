@@ -1,11 +1,5 @@
 <template>
-  <SectionWrapper
-    id="contact"
-    number="06"
-    title="連絡先"
-    :dot-color="'var(--color-accent-green)'"
-    no-border
-  >
+  <SectionWrapper id="contact" number="06" title="連絡先" no-border>
     <a :href="`mailto:${profile.email}`" class="email">
       {{ profile.email }}
     </a>
@@ -29,7 +23,7 @@ import { profile, contact } from '~/data/site';
   color: var(--color-text);
   text-decoration: none;
   font-weight: 500;
-  border-bottom: 1px solid var(--color-accent-red);
+  border-bottom: 2px solid var(--color-primary);
   padding-bottom: 3px;
   display: inline-block;
   transition: opacity 0.2s ease;

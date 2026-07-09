@@ -1,12 +1,14 @@
 <template>
-  <SectionWrapper
-    id="product"
-    number="03"
-    title="提供サービス"
-    :dot-color="'var(--color-accent-green)'"
-  >
+  <SectionWrapper id="product" number="03" title="提供サービス">
     <div class="service-list">
-      <div v-for="service in services" :key="service.name" class="service-card">
+      <a
+        v-for="service in services"
+        :key="service.name"
+        :href="service.link"
+        class="service-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
           <span class="service-image-text" aria-hidden="true">デモGIF / スクリーンショット</span>
         </div>
@@ -19,13 +21,11 @@
           <p class="service-desc">{{ service.description }}</p>
           <div class="service-tech">{{ service.tech }}</div>
           <div class="service-actions">
-            <a :href="service.link" class="btn-primary" target="_blank" rel="noopener noreferrer">
-              {{ service.linkLabel }}<span class="arrow">↗</span>
-            </a>
+            <span class="btn-primary"> {{ service.linkLabel }}<span class="arrow">↗</span> </span>
             <span class="service-note">{{ service.note }}</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </SectionWrapper>
 </template>
@@ -42,21 +42,29 @@ import { services } from '~/data/site';
 }
 
 .service-card {
+  display: block;
   border: 1px solid var(--color-border-light);
   border-radius: 8px;
   overflow: hidden;
   max-width: 560px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background-color: var(--color-bg);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.service-card:hover {
-  border-color: var(--color-border-tag);
+.service-card:hover,
+.service-card:focus-visible {
+  border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
 
 .service-image {
   height: 320px;
-  background: repeating-linear-gradient(135deg, #f1eee9, #f1eee9 6px, #e7e3dc 6px, #e7e3dc 12px);
+  background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +73,7 @@ import { services } from '~/data/site';
 .service-image-text {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #a8a39c;
+  color: var(--color-text-label);
   letter-spacing: 0.06em;
 }
 
@@ -84,8 +92,8 @@ import { services } from '~/data/site';
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
-  color: var(--color-text);
-  border: 1px solid var(--color-border-tag);
+  color: var(--color-primary);
+  border: 1px solid var(--color-accent-light);
   border-radius: 100px;
   padding: 4px 11px;
   white-space: nowrap;
@@ -131,7 +139,7 @@ import { services } from '~/data/site';
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--color-text);
+  background: var(--color-primary);
   color: var(--color-surface);
   text-decoration: none;
   font-size: 13px;
@@ -141,9 +149,8 @@ import { services } from '~/data/site';
   transition: background 0.2s ease;
 }
 
-.btn-primary:hover,
-.btn-primary:focus-visible {
-  background: var(--color-text-hover);
+.service-card:hover .btn-primary {
+  background: var(--color-primary-dark);
 }
 
 .arrow {

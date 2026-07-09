@@ -16,7 +16,7 @@ const messages: Record<number, string> = {
   500: 'サーバーエラーが発生しました',
 };
 
-const message = computed(() => messages[props.error?.statusCode ?? 500] ?? 'エラーが発生しました');
+const message = messages[props.error?.statusCode ?? 500] ?? 'エラーが発生しました';
 </script>
 
 <style scoped>
@@ -38,7 +38,7 @@ const message = computed(() => messages[props.error?.statusCode ?? 500] ?? 'エ�
   font-weight: 700;
   line-height: 1;
   margin: 0 0 16px;
-  color: var(--color-accent-red);
+  color: var(--color-primary);
 }
 
 .error-message {
@@ -63,7 +63,7 @@ const message = computed(() => messages[props.error?.statusCode ?? 500] ?? 'エ�
 }
 
 .back-link:focus-visible {
-  outline: 2px solid var(--color-accent-red);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 

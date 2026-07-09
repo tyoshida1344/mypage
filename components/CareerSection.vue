@@ -1,5 +1,5 @@
 <template>
-  <SectionWrapper id="career" number="05" title="経歴" :dot-color="'var(--color-accent-blue)'">
+  <SectionWrapper id="career" number="05" title="経歴">
     <div class="timeline">
       <div class="timeline-line" />
 
@@ -39,7 +39,7 @@ import { career } from '~/data/site';
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: var(--color-border-lighter);
+  background: var(--color-accent-light);
 }
 
 .phase-header {
@@ -54,7 +54,7 @@ import { career } from '~/data/site';
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--color-accent-red);
+  background: var(--color-accent);
 }
 
 .phase-company {

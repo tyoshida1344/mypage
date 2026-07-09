@@ -1,8 +1,30 @@
 <template>
   <div id="top" class="hero">
-    <div class="subtitle">{{ profile.title }}</div>
-    <h1 class="title">{{ profile.name }}</h1>
-    <p class="lead">{{ profile.lead }}</p>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="subtitle fade-in">{{ profile.title }}</div>
+        <h1 class="title fade-in delay-short">{{ profile.name }}</h1>
+        <p class="lead fade-in delay-short">{{ profile.lead }}</p>
+      </div>
+      <div class="hero-code fade-in-right delay-long" aria-hidden="true">
+        <pre><span class="kw">interface</span> <span class="ty">Engineer</span> {
+  <span class="pr">name</span>: <span class="ty">string</span>
+  <span class="pr">title</span>: <span class="ty">string</span>
+  <span class="pr">skills</span>: <span class="ty">string</span>[]
+  <span class="pr">available</span>: <span class="ty">boolean</span>
+}
+
+<span class="kw">export const</span> <span class="vr">profile</span>: <span class="ty">Engineer</span> <span class="op">=</span> {
+  <span class="pr">name</span>: <span class="st">"{{ profile.name }}"</span>,
+  <span class="pr">title</span>: <span class="st">"{{ profile.title }}"</span>,
+  <span class="pr">skills</span>: [
+    <span class="st">"TypeScript"</span>, <span class="st">"Vue.js"</span>,
+    <span class="st">"Nuxt"</span>, <span class="st">"Node.js"</span>,
+  ],
+  <span class="pr">available</span>: <span class="bl">true</span>,
+}</pre>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,41 +34,168 @@ import { profile } from '~/data/site';
 
 <style scoped>
 .hero {
+  overflow: hidden;
+  background: linear-gradient(135deg, #b33a00 0%, #ff5500 40%, #ffaa55 100%);
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
   padding: 96px 80px 72px;
+}
+
+.hero-text {
+  max-width: 55%;
+}
+
+.hero-code {
+  position: absolute;
+  right: -80px;
+  top: 0;
+  pointer-events: none;
+  user-select: none;
+  background: linear-gradient(to right, transparent 0%, #000 50%);
+}
+
+.hero-code::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  height: 100%;
+  background: #000;
+}
+
+.hero-code pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+  padding: 32px 28px 32px 180px;
+}
+
+.kw {
+  color: #c586c0;
+}
+.ty {
+  color: #4ec9b0;
+}
+.pr {
+  color: #9cdcfe;
+}
+.vr {
+  color: #4fc1ff;
+}
+.op {
+  color: #d4d4d4;
+}
+.st {
+  color: #ce9178;
+}
+.bl {
+  color: #569cd6;
+}
+
+.fade-in,
+.fade-in-right {
+  animation: fade-up 1s ease-in-out both;
+}
+
+.fade-in-right {
+  animation-name: fade-left;
+}
+
+.delay-short {
+  animation-delay: 0.1s;
+}
+.delay-long {
+  animation-delay: 0.5s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .subtitle {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.14em;
-  color: var(--color-text-label);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 24px;
 }
 
 .title {
   font-weight: 700;
-  font-size: 68px;
+  font-size: 56px;
   line-height: 1.12;
   letter-spacing: 0.03em;
   margin: 0 0 26px;
+  color: #fff;
 }
 
 .lead {
   font-size: 16px;
   line-height: 2;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.88);
   margin: 0;
   font-weight: 300;
-  max-width: 600px;
 }
 
 @media (max-width: 768px) {
-  .hero {
+  .hero-inner {
     padding: 48px 20px 36px;
   }
 
+  .hero-text {
+    max-width: none;
+  }
+
+  .hero-code {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 24px -20px -60px;
+    border-radius: 0;
+    background: linear-gradient(180deg, transparent 0%, #000 50%);
+  }
+
+  .hero-code::after {
+    display: none;
+  }
+
+  .fade-in-right {
+    animation-name: fade-up;
+  }
+
+  .hero-code pre {
+    font-size: 10px;
+    padding: 20px;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, white 50%);
+    mask-image: linear-gradient(180deg, transparent 0%, white 50%);
+  }
+
   .title {
-    font-size: 40px;
+    font-size: 36px;
     letter-spacing: 0.02em;
   }
 }

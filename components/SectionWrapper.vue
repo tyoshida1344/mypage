@@ -1,16 +1,13 @@
 <template>
-  <div :id="id" class="section" :class="{ 'no-border': noBorder }">
+  <section :id="id" class="section" :class="{ 'no-border': noBorder }">
     <div class="section-label">
-      <span class="section-number">
-        <span class="dot" :style="{ background: dotColor }" />
-        {{ number }}
-      </span>
-      <div class="section-title">{{ title }}</div>
+      <span class="section-number"> <span class="slash">//</span> {{ number }} </span>
+      <h2 class="section-title">{{ title }}</h2>
     </div>
     <div class="section-content">
       <slot />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +15,6 @@ defineProps<{
   id: string;
   number: string;
   title: string;
-  dotColor: string;
   noBorder?: boolean;
 }>();
 </script>
@@ -28,6 +24,7 @@ defineProps<{
   display: grid;
   grid-template-columns: 200px 1fr;
   border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
 
 .no-border {
@@ -48,21 +45,18 @@ defineProps<{
   color: var(--color-text-secondary);
 }
 
-.dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
+.slash {
+  color: var(--color-accent);
+  margin-right: 4px;
 }
 
 .section-title {
   font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: normal;
   letter-spacing: 0.14em;
   color: var(--color-text-label);
-  margin-top: 8px;
+  margin: 8px 0 0;
 }
 
 .section-content {
