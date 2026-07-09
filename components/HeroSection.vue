@@ -65,6 +65,16 @@ import { profile } from '~/data/site';
   );
 }
 
+.hero-code::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100vw;
+  height: 100%;
+  background: inherit;
+}
+
 @keyframes code-fade-in {
   from {
     opacity: 0;
