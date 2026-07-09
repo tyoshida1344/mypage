@@ -10,22 +10,18 @@
   "skills": [
     {
       "label": "言語",
-
       "items": "Java · Kotlin · JavaScript · TypeScript · Dart"
     },
     {
       "label": "フレームワーク",
-
       "items": "Spring Boot · Vue · React · Flutter · React Native"
     },
     {
       "label": "インフラ / DB",
-
       "items": "AWS（EC2・S3・RDS・ECS）· MySQL · PostgreSQL"
     },
     {
       "label": "その他",
-
       "items": "Docker · Git · GitHub · Claude Code"
     }
   ],

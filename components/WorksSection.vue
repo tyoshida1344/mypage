@@ -1,11 +1,7 @@
 <template>
   <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
     <a :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
-      <span class="github-dots">
-        <span class="dot dot-1" />
-        <span class="dot dot-2" />
-        <span class="dot dot-3" />
-      </span>
+      <DotIndicator size="6px" gap="4px" />
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
     <div class="works-list">
@@ -56,29 +52,6 @@ import { works, links as siteLinks } from '~/data/site';
 .github-link:hover,
 .github-link:focus-visible {
   opacity: 0.6;
-}
-
-.github-dots {
-  display: flex;
-  gap: 4px;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.dot-1 {
-  background: var(--color-accent-dot-1);
-}
-
-.dot-2 {
-  background: var(--color-accent-dot-2);
-}
-
-.dot-3 {
-  background: var(--color-accent-dot-3);
 }
 
 .arrow {

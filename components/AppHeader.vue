@@ -2,11 +2,7 @@
   <header class="header" :class="{ scrolled: isScrolled }">
     <div class="header-inner">
       <a href="#top" class="logo">
-        <span class="dots">
-          <span class="dot dot-1" />
-          <span class="dot dot-2" />
-          <span class="dot dot-3" />
-        </span>
+        <DotIndicator />
         <span class="name">{{ profile.name }}</span>
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
@@ -120,29 +116,6 @@ onUnmounted(() => {
   gap: 8px;
   text-decoration: none;
   color: var(--color-text);
-}
-
-.dots {
-  display: flex;
-  gap: 5px;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-}
-
-.dot-1 {
-  background: var(--color-accent-dot-1);
-}
-
-.dot-2 {
-  background: var(--color-accent-dot-2);
-}
-
-.dot-3 {
-  background: var(--color-accent-dot-3);
 }
 
 .name {
