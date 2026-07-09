@@ -45,6 +45,7 @@ import { services } from '~/data/site';
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  background-color: var(--color-bg);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 

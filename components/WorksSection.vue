@@ -42,6 +42,7 @@ import { works, links as siteLinks } from '~/data/site';
   border-radius: 100px;
   padding: 9px 18px;
   margin-bottom: 24px;
+  background-color: var(--color-bg);
   transition: opacity 0.2s ease;
 }
 
@@ -94,6 +95,7 @@ import { works, links as siteLinks } from '~/data/site';
   text-decoration: none;
   color: var(--color-text);
   align-items: center;
+  background-color: var(--color-bg);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 

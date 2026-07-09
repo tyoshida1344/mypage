@@ -26,6 +26,7 @@ defineProps<{
   display: grid;
   grid-template-columns: 200px 1fr;
   border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
 
 .no-border {

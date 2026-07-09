@@ -18,6 +18,7 @@ import { profile, links as siteLinks } from '~/data/site';
 <style scoped>
 .footer {
   border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
 }
 
 .footer-inner {
