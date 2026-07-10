@@ -5,7 +5,7 @@ const siteDataPath = 'data/site.json';
 const siteData = existsSync(siteDataPath)
   ? (JSON.parse(readFileSync(siteDataPath, 'utf-8')) as SiteData)
   : null;
-const pageTitle = [siteData?.profile?.name, 'ポートフォリオ'].filter(Boolean).join(' | ');
+const pageTitle = [siteData?.profile?.name, 'プロフィール'].filter(Boolean).join(' | ');
 const siteDescription = siteData?.profile?.lead ?? '';
 const siteUrl = siteData?.siteUrl ?? '';
 
