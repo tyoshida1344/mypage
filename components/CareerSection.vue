@@ -6,8 +6,7 @@
       <div v-for="(phase, i) in career" :key="i" class="phase">
         <div class="phase-header">
           <div class="phase-dot" />
-          <div class="phase-company">{{ phase.company }}</div>
-          <div class="phase-period">{{ phase.period }}</div>
+          <div class="phase-company">{{ phase.company }}<span class="phase-period">（{{ phase.period }}）</span></div>
         </div>
         <div class="phase-items">
           <div v-for="item in phase.items" :key="item.period" class="phase-item">
@@ -67,7 +66,7 @@ import { career } from '~/data/site';
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--color-text-label);
-  margin-top: 3px;
+  margin-left: 6px;
 }
 
 .phase-items {

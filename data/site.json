@@ -2,10 +2,10 @@
   "siteUrl": "https://triver-selfy.netlify.app",
   "profile": {
     "name": "吉田 大河",
-    "title": "バックエンドエンジニア / 個人事業主",
+    "title": "Web・モバイルエンジニア / 個人事業主",
     "email": "t.yoshida1344@gmail.com",
-    "lead": "ここに、あなたを一言で表すリード文を入れます。専門領域や提供できる価値を、短く簡潔に。",
-    "about": "ここに自己紹介を記載します。経歴・得意な技術領域・働き方や大切にしている考え方などを、自分の言葉で簡潔にまとめてください。"
+    "lead": "サーバーサイド・Web・モバイルまで一貫して開発。\n新しい技術にもすぐ対応し、ツールや自動化で開発効率を最大化します。",
+    "about": "SES企業でのバックエンド開発を経て、2024年より個人事業主として独立。Java/Kotlinによるサーバーサイド開発を軸に、Vue・Reactでのフロントエンド、Flutter・React Nativeでのモバイルアプリまで一貫して対応します。新しい技術や未経験の領域でも短期間で戦力になれるキャッチアップの速さが持ち味です。『動くだけ』で終わらせず、保守しやすく使いやすいプロダクトを届けることを大切にしています。"
   },
   "skills": [
     {
@@ -17,49 +17,69 @@
       "items": "Spring Boot · Vue · React · Flutter · React Native"
     },
     {
-      "label": "インフラ / DB",
-      "items": "AWS（EC2・S3・RDS・ECS）· MySQL · PostgreSQL"
+      "label": "DB",
+      "items": "MySQL · PostgreSQL"
     },
     {
       "label": "その他",
-      "items": "Docker · Git · GitHub · Claude Code"
+      "items": "Git · GitHub · Claude Code"
     }
   ],
   "services": [
     {
       "type": "Chrome拡張",
       "category": "個人開発",
-      "name": "プロダクト名を入力",
-      "description": "この拡張機能で何ができるのか、誰のどんな課題を解決するのかを1〜2行で簡潔に。ストアでは未公開で、リポジトリをクローンしてご利用いただけます。",
-      "tech": "使用技術 · を · 記載",
-      "link": "#",
+      "name": "便利ツール オールインワン",
+      "description": "文字列生成・エポック変換・カラー変換・翻訳・正規表現など、10以上の開発ツールをポップアップからワンクリックで利用できる拡張機能です。",
+      "tech": "JavaScript · CSS · Chrome Extension API",
+      "link": "https://github.com/tyoshida1344/toolkit-extension",
       "linkLabel": "GitHub から入手",
       "note": "git clone してご利用ください"
+    },
+    {
+      "type": "Webアプリ",
+      "category": "個人開発",
+      "name": "DOTWORK",
+      "description": "初心者でも使いやすいピクセルアートエディタ。レッスン機能を使ったピクセルアート作成の練習もできます。",
+      "tech": "Vue 3 · TypeScript · PostgreSQL · Supabase",
+      "link": "https://dot-work.netlify.app",
+      "linkLabel": "サイトを見る",
+      "note": ""
+    },
+    {
+      "type": "Webアプリ",
+      "category": "個人開発",
+      "name": "ノンクリツール",
+      "description": "画像編集・テキスト変換・計算ツールなどをダッシュボード上で自由にレイアウトして使えるオールインワンツールサービスです。",
+      "tech": "Nuxt 4 · TypeScript · Tailwind CSS · Supabase",
+      "link": "https://toolforus.netlify.app/",
+      "linkLabel": "サイトを見る",
+      "note": ""
     }
   ],
   "works": [
     {
-      "title": "作品タイトルを入力",
-      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
-      "tech": "使用技術 · を · 記載",
-      "link": "#"
+      "title": "ポートフォリオサイト",
+      "description": "本サイト。Nuxt 3 で構築した個人ポートフォリオサイトです。",
+      "tech": "Nuxt 3 · Vue 3 · TypeScript",
+      "link": "https://github.com/tyoshida1344/mypage"
     },
     {
-      "title": "作品タイトルを入力",
-      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
-      "tech": "使用技術 · を · 記載",
-      "link": "#"
+      "title": "便利ツール オールインワン",
+      "description": "文字列生成・エポック変換・カラー変換・翻訳・正規表現など、10以上の開発ツールをポップアップからワンクリックで利用できるChrome拡張機能。",
+      "tech": "JavaScript · CSS · Chrome Extension API",
+      "link": "https://github.com/tyoshida1344/toolkit-extension"
     },
     {
-      "title": "作品タイトルを入力",
-      "description": "作品の概要を1〜2行で。担当範囲や役割、こだわった点などを簡潔に。",
-      "tech": "使用技術 · を · 記載",
-      "link": "#"
+      "title": "DOTWORK",
+      "description": "初心者でも使いやすいピクセルアートエディタ。レッスン機能を使ったピクセルアート作成の練習もできます。",
+      "tech": "Vue 3 · TypeScript · PostgreSQL · Supabase",
+      "link": "https://dot-work.netlify.app"
     }
   ],
   "career": [
     {
-      "company": "SES企業（社名非公開）",
+      "company": "SES企業",
       "period": "2020.04 – 2023.08",
       "items": [
         {
