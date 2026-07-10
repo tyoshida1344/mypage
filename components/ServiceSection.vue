@@ -9,13 +9,10 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="service-image" role="img" :aria-label="`${service.name}のイメージ画像`">
-          <span class="service-image-text" aria-hidden="true">デモGIF / スクリーンショット</span>
-        </div>
+        <ImageSlider :images="service.images" :alt="service.name" />
         <div class="service-body">
           <div class="service-tags">
             <span class="tag">{{ service.type }}</span>
-            <span class="tag-sub">{{ service.category }}</span>
           </div>
           <div class="service-name">{{ service.name }}</div>
           <p class="service-desc">{{ service.description }}</p>
@@ -62,21 +59,6 @@ import { services } from '~/data/site';
   box-shadow: var(--shadow-card-hover);
 }
 
-.service-image {
-  height: 320px;
-  background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-image-text {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--color-text-label);
-  letter-spacing: 0.06em;
-}
-
 .service-body {
   padding: 24px 26px;
 }
@@ -96,14 +78,6 @@ import { services } from '~/data/site';
   border: 1px solid var(--color-accent-light);
   border-radius: 100px;
   padding: 4px 11px;
-  white-space: nowrap;
-}
-
-.tag-sub {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--color-text-label);
   white-space: nowrap;
 }
 
