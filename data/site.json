@@ -41,7 +41,7 @@
       "category": "個人開発",
       "name": "DOTWORK",
       "description": "初心者でも使いやすいピクセルアートエディタ。レッスン機能を使ったピクセルアート作成の練習もできます。",
-      "tech": "Vue 3 · TypeScript · Canvas API · Supabase",
+      "tech": "Vue 3 · TypeScript · PostgreSQL · Supabase",
       "link": "https://dot-work.netlify.app",
       "linkLabel": "サイトを見る",
       "note": ""
@@ -73,7 +73,7 @@
     {
       "title": "DOTWORK",
       "description": "初心者でも使いやすいピクセルアートエディタ。レッスン機能を使ったピクセルアート作成の練習もできます。",
-      "tech": "Vue 3 · TypeScript · Canvas API · Supabase",
+      "tech": "Vue 3 · TypeScript · PostgreSQL · Supabase",
       "link": "https://dot-work.netlify.app"
     }
   ],
