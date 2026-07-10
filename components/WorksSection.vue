@@ -13,8 +13,8 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="work-image" role="img" :aria-label="`${work.title}のイメージ画像`">
-          <span class="work-image-text" aria-hidden="true">作品画像</span>
+        <div class="work-image">
+          <NuxtImg :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" class="work-thumb" />
         </div>
         <div class="work-body">
           <div class="work-header">
@@ -92,17 +92,14 @@ import { works, links as siteLinks } from '~/data/site';
   height: 78px;
   border-radius: 4px;
   flex: none;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.work-image-text {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--color-text-label);
-  letter-spacing: 0.06em;
+.work-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .work-body {

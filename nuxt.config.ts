@@ -13,7 +13,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   ssr: true,
   site: { url: siteUrl },
-  modules: ['@nuxtjs/google-fonts', '@nuxt/eslint', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/google-fonts', '@nuxt/eslint', '@nuxtjs/sitemap', '@nuxt/image'],
+  image: {
+    format: ['webp'],
+    quality: 80,
+  },
   googleFonts: {
     families: {
       'Noto Sans JP': [300, 400, 500, 600, 700],
