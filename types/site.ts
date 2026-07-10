@@ -13,10 +13,10 @@ export interface Skill {
 
 export interface Service {
   type: string;
-  category: string;
   name: string;
   description: string;
   tech: string;
+  images: string[];
   link: string;
   linkLabel: string;
   note: string;
@@ -26,6 +26,7 @@ export interface Work {
   title: string;
   description: string;
   tech: string;
+  thumb: string;
   link: string;
 }
 
