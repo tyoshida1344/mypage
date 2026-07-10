@@ -1,11 +1,11 @@
 <template>
   <SectionWrapper id="contact" number="06" title="連絡先" no-border>
-    <a :href="`mailto:${profile.email}`" class="email">
-      {{ profile.email }}
+    <a :href="`mailto:${profile?.email}`" class="email">
+      {{ profile?.email }}
     </a>
-    <div class="contact-sub">{{ contact.description }}</div>
+    <div class="contact-sub">{{ contact?.description }}</div>
     <div class="contact-details">
-      <template v-for="detail in contact.details" :key="detail.label">
+      <template v-for="detail in contact?.details" :key="detail.label">
         <div class="detail-label">{{ detail.label }}</div>
         <div class="detail-value">{{ detail.value }}</div>
       </template>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile, contact } from '~/data/site';
+const { profile, contact } = await useSiteData();
 </script>
 
 <style scoped>

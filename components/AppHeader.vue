@@ -3,7 +3,7 @@
     <div class="header-inner">
       <a href="#top" class="logo">
         <DotIndicator />
-        <span class="name">{{ profile.name }}</span>
+        <span class="name">{{ profile?.name }}</span>
       </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <a href="#about">自己紹介</a>
@@ -43,7 +43,8 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from 'vue';
-import { profile } from '~/data/site';
+
+const { profile } = await useSiteData();
 
 const isScrolled = ref(false);
 const menuOpen = ref(false);

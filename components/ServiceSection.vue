@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { services } from '~/data/site';
+const { services } = await useSiteData();
 </script>
 
 <style scoped>

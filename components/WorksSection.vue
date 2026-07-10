@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
-    <a :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
+    <a :href="siteLinks?.github" class="github-link" target="_blank" rel="noopener noreferrer">
       <DotIndicator size="6px" gap="4px" />
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
@@ -14,7 +14,7 @@
         rel="noopener noreferrer"
       >
         <div class="work-image">
-          <NuxtImg :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" class="work-thumb" />
+          <img :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" class="work-thumb">
         </div>
         <div class="work-body">
           <div class="work-header">
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { works, links as siteLinks } from '~/data/site';
+const { works, links: siteLinks } = await useSiteData();
 </script>
 
 <style scoped>

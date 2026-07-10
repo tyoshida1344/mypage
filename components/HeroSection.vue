@@ -2,9 +2,9 @@
   <div id="top" class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="subtitle fade-in">{{ profile.title }}</div>
-        <h1 class="title fade-in delay-short">{{ profile.name }}</h1>
-        <p class="lead fade-in delay-short">{{ profile.lead }}</p>
+        <div class="subtitle fade-in">{{ profile?.title }}</div>
+        <h1 class="title fade-in delay-short">{{ profile?.name }}</h1>
+        <p class="lead fade-in delay-short">{{ profile?.lead }}</p>
       </div>
       <div class="hero-code fade-in-right delay-long" aria-hidden="true">
         <pre><span class="kw">interface</span> <span class="ty">Engineer</span> {
@@ -15,8 +15,8 @@
 }
 
 <span class="kw">export const</span> <span class="vr">profile</span>: <span class="ty">Engineer</span> <span class="op">=</span> {
-  <span class="pr">name</span>: <span class="st">"{{ profile.name }}"</span>,
-  <span class="pr">title</span>: <span class="st">"{{ profile.title }}"</span>,
+  <span class="pr">name</span>: <span class="st">"{{ profile?.name }}"</span>,
+  <span class="pr">title</span>: <span class="st">"{{ profile?.title }}"</span>,
   <span class="pr">skills</span>: [
     <span class="st">"TypeScript"</span>, <span class="st">"Vue.js"</span>,
     <span class="st">"Nuxt"</span>, <span class="st">"Node.js"</span>,
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { profile } from '~/data/site';
+const { profile } = await useSiteData();
 </script>
 
 <style scoped>
