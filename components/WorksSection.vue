@@ -14,7 +14,7 @@
         rel="noopener noreferrer"
       >
         <div class="work-image">
-          <img :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" />
+          <NuxtImg :src="work.thumb" :alt="`${work.title}のサムネイル`" width="232" height="156" loading="lazy" />
         </div>
         <div class="work-body">
           <div class="work-header">
