@@ -14,7 +14,7 @@
         rel="noopener noreferrer"
       >
         <div class="work-image">
-          <NuxtImg :src="work.thumb" :alt="`${work.title}のサムネイル`" width="232" height="156" loading="lazy" />
+          <NuxtImg :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" class="work-thumb" />
         </div>
         <div class="work-body">
           <div class="work-header">
@@ -96,7 +96,7 @@ import { works, links as siteLinks } from '~/data/site';
   background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
 }
 
-.work-image img {
+.work-thumb {
   width: 100%;
   height: 100%;
   object-fit: contain;

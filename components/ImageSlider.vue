@@ -3,7 +3,7 @@
     <div class="slider-track" :style="{ transform: `translateX(-${current * 100}%)` }">
       <template v-if="images.length">
         <div v-for="(src, i) in images" :key="i" class="slider-slide">
-          <NuxtImg :src="src" :alt="`${alt} ${i + 1}`" loading="lazy" />
+          <NuxtImg :src="src" :alt="`${alt} ${i + 1}`" loading="lazy" class="slider-img" />
         </div>
       </template>
       <div v-else class="slider-slide slider-placeholder">
@@ -101,7 +101,7 @@ onBeforeUnmount(pause);
   justify-content: center;
 }
 
-.slider-slide img {
+.slider-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
