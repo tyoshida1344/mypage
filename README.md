@@ -45,34 +45,20 @@ Netlify にリポジトリを接続して自動デプロイを設定します。
 ├── pages/
 │   └── index.vue           # トップページ
 ├── components/             # 各セクションのVueコンポーネント
+├── composables/
+│   └── useSiteData.ts      # サイトデータ取得 composable
+├── server/api/
+│   └── site-data.get.ts    # GAS API からデータ取得
 ├── assets/css/
 │   └── main.css            # グローバルスタイル・CSS変数
-├── data/
-│   ├── site.json           # サイトコンテンツ（gitignore対象）
-│   └── site.example.json   # site.json のテンプレート
-├── scripts/
-│   └── setup-data.sh       # ビルド時のデータ復元スクリプト
+├── gas/
+│   ├── Code.gs             # GAS スクリプト
+│   └── README.md           # GAS セットアップ手順
 ├── nuxt.config.ts          # Nuxt 設定
 └── netlify.toml            # Netlify デプロイ設定
 ```
 
 ## コンテンツの編集
 
-氏名・経歴・スキル・ポートフォリオなどのコンテンツは `data/site.json` に集約しています。
-Vue コンポーネントを編集せずに、この JSON ファイルだけでサイトの内容を更新できます。
-
-`data/site.json` は `.gitignore` 対象のため Git には含まれません。
-`data/site.example.json` を参考にして `data/site.json` を作成してください。
-
-```bash
-cp data/site.example.json data/site.json
-```
-
-### Netlify での設定
-
-Netlify の環境変数 `SITE_DATA` に `site.json` を Base64 エンコードした値を登録すると、ビルド時に自動で復元されます。
-
-```bash
-# エンコード例
-cat data/site.json | base64
-```
+サイトのコンテンツは Google Sheets で管理しています。
+セットアップ手順やシート構成は [gas/README.md](gas/README.md) を参照してください。
