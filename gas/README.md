@@ -66,7 +66,7 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 | Chrome拡張 | 便利ツール オールインワン | 文字列生成・エポック変換... | JavaScript · CSS · ... | (画像URL) | (画像URL) | (画像URL) | (画像URL) | https://github.com/... | GitHub から入手 | git clone してご利用ください |
 
 - `image1`〜`image4`: Google Drive の共有リンク URL を記入（不要な列は空欄）
-- Google Drive 画像URL の形式: `https://drive.google.com/uc?export=view&id=FILE_ID`
+- Google Drive 画像URL の形式: `https://lh3.googleusercontent.com/d/FILE_ID`
   - ファイルの共有設定を「リンクを知っている全員」に変更してから使用する
 
 ### `works` タブ
