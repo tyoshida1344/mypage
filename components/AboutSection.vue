@@ -1,11 +1,11 @@
 <template>
   <SectionWrapper id="about" number="01" title="自己紹介">
-    <p class="about-text">{{ profile.about }}</p>
+    <p class="about-text">{{ profile?.about }}</p>
   </SectionWrapper>
 </template>
 
 <script setup lang="ts">
-import { profile } from '~/data/site';
+const { profile } = await useSiteData();
 </script>
 
 <style scoped>

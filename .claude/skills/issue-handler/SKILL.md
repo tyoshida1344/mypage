@@ -68,7 +68,7 @@ gh issue view <番号> --json title,body,comments,labels,state
 このプロジェクトの主要な規約:
 - **Nuxt 3 + Vue 3 Composition API**（`<script setup lang="ts">`）
 - **コンポーネント配置**: `components/` 直下。セクション系は `XxxSection.vue`、共通UIは `AppXxx.vue` / `SectionWrapper.vue`
-- **データ**: `data/site.json` に集約、各コンポーネントから直接 import
+- **データ**: Google Sheets + GAS API から取得。`composables/useSiteData.ts` 経由で各コンポーネントが利用
 - **スタイル**: CSS 変数（`assets/css/main.css` で定義）を使用。各コンポーネントは `<style scoped>`
 - **レスポンシブ**: `@media (max-width: 768px)` でモバイル対応
 - **デプロイ**: Netlify で `nuxt generate`（静的生成）
@@ -130,7 +130,7 @@ EOF
 - 既存のコンポーネント構造・CSS変数・レスポンシブパターンを踏襲する
 - 新しいセクションは `SectionWrapper` を使う
 - CSS変数は `assets/css/main.css` に追加、スコープドスタイルは各コンポーネントに記述
-- `data/site.json` にフィールドを追加する場合は `data/site.example.json` も同期する
+- データ構造を変更する場合は `types/site.ts` の型定義と `gas/Code.gs` のパーサーも同期する
 
 バグ修正イシューでも流れは同じ（原因を特定 → 直し方を仕様として確定 → 修正）。
 

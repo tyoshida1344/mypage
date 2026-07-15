@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { skills } from '~/data/site';
+const { skills } = await useSiteData();
 </script>
 
 <style scoped>

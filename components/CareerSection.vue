@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { career } from '~/data/site';
+const { career } = await useSiteData();
 </script>
 
 <style scoped>

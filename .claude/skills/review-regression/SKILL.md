@@ -25,7 +25,7 @@ git diff main
 3. 変更ファイルを参照・利用している関連ファイルを特定して読む。特に:
    - 変更したコンポーネントを利用しているページ・親コンポーネント
    - 変更した CSS 変数を使用している他のコンポーネント
-   - 変更したデータ構造（`data/site.json`）を参照しているコンポーネント
+   - 変更したデータ構造（`types/site.ts`）を参照しているコンポーネント
 
 ## 確認観点
 
@@ -38,10 +38,10 @@ git diff main
 
 ### データ構造の互換性
 
-- `data/site.json` のフィールド名・構造が変わっていないか（既存データが読めなくなる）
-- `data/site.example.json` と `data/site.json` の構造が同期しているか
-- `nuxt.config.ts` でのデータ読み込み処理が正しく動作するか
-- `scripts/setup-data.sh` の挙動に影響がないか
+- `types/site.ts` の型定義と GAS API のレスポンスが一致しているか
+- `composables/useSiteData.ts` の返却値が変わっていないか（各コンポーネントで利用）
+- `server/api/site-data.get.ts` の API ルートが正しく動作するか
+- `gas/Code.gs` の出力形式と型定義が同期しているか
 
 ### CSS の影響
 
