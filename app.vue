@@ -7,7 +7,7 @@ const { profile, siteUrl } = await useSiteData();
 
 useHead(() => {
   const name = profile.value?.name;
-  const title = [name, 'ポートフォリオ'].filter(Boolean).join(' | ');
+  const title = [name, 'プロフィール'].filter(Boolean).join(' | ');
   const description = profile.value?.lead ?? '';
   const url = siteUrl.value;
   return {
