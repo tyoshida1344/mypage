@@ -48,7 +48,7 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 |---|---|---|---|---|---|
 | `https://example.com` | 吉田 大河 | Web・モバイルエンジニア / 個人事業主 | email@example.com | サーバーサイド・Web・モバイルまで... | SES企業でのバックエンド開発を経て... |
 
-- `lead`: 改行を含む場合はセル内改行（Ctrl+Enter）を使用
+- `lead`: 改行を含む場合はセル内改行（Alt+Enter）を使用
 
 ### `skills` タブ
 
