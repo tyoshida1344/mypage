@@ -1,6 +1,19 @@
 <template>
-  <div class="slider" @mouseenter="pause" @mouseleave="resume">
-    <div class="slider-track" :style="{ transform: `translateX(-${current * 100}%)` }">
+  <div
+    class="slider"
+    @mouseenter="pause"
+    @mouseleave="resume"
+    @touchstart.passive="onTouchStart"
+    @touchmove.passive="onTouchMove"
+    @touchend="onTouchEnd"
+    @touchcancel="onTouchEnd"
+    @click.capture="onClickCapture"
+  >
+    <div
+      class="slider-track"
+      :class="{ dragging: dragX !== 0 }"
+      :style="{ transform: `translateX(calc(${-current * 100}% + ${dragX}px))` }"
+    >
       <template v-if="images.length">
         <div v-for="(src, i) in images" :key="i" class="slider-slide">
           <img :src="src" :alt="`${alt} ${i + 1}`" loading="lazy" class="slider-img">
@@ -59,6 +72,64 @@ function prev() {
   current.value = (current.value - 1 + props.images.length) % props.images.length;
 }
 
+// ---- スワイプ操作 ----
+/** 切り替えに必要なスワイプ距離（スライダー幅に対する割合） */
+const SWIPE_THRESHOLD_RATIO = 0.2;
+/** 縦横どちらの操作かを判定し始める移動量(px) */
+const AXIS_LOCK_DISTANCE = 8;
+
+const dragX = ref(0);
+let startX = 0;
+let startY = 0;
+let axis: 'x' | 'y' | null = null;
+/** スワイプ直後に発火するクリックでタップ送り・カードのリンク遷移が起きないようにする */
+let justSwiped = false;
+
+function onTouchStart(e: TouchEvent) {
+  if (props.images.length <= 1) return;
+  const t = e.touches[0];
+  startX = t.clientX;
+  startY = t.clientY;
+  axis = null;
+  justSwiped = false;
+  pause();
+}
+
+function onTouchMove(e: TouchEvent) {
+  if (props.images.length <= 1 || axis === 'y') return;
+  const t = e.touches[0];
+  const dx = t.clientX - startX;
+  if (!axis) {
+    const dy = t.clientY - startY;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < AXIS_LOCK_DISTANCE) return;
+    axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+    if (axis === 'y') return;
+  }
+  dragX.value = dx;
+}
+
+function onTouchEnd(e: TouchEvent) {
+  if (props.images.length <= 1) return;
+  if (axis === 'x') {
+    const width = (e.currentTarget as HTMLElement).clientWidth;
+    if (e.type === 'touchend' && Math.abs(dragX.value) > width * SWIPE_THRESHOLD_RATIO) {
+      if (dragX.value < 0) next();
+      else prev();
+    }
+    justSwiped = true;
+  }
+  dragX.value = 0;
+  axis = null;
+  resume();
+}
+
+function onClickCapture(e: MouseEvent) {
+  if (!justSwiped) return;
+  justSwiped = false;
+  e.preventDefault();
+  e.stopPropagation();
+}
+
 function startAutoPlay() {
   if (props.images.length <= 1) return;
   timer = setInterval(next, 4000);
@@ -83,6 +154,7 @@ onBeforeUnmount(pause);
 .slider {
   position: relative;
   overflow: hidden;
+  touch-action: pan-y;
   height: 320px;
   background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
 }
@@ -91,6 +163,10 @@ onBeforeUnmount(pause);
   display: flex;
   height: 100%;
   transition: transform 0.4s ease;
+}
+
+.slider-track.dragging {
+  transition: none;
 }
 
 .slider-slide {

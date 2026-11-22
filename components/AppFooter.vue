@@ -4,7 +4,7 @@
       <div class="copyright">© 2026 {{ profile?.name }}</div>
       <div class="footer-links">
         <a :href="`mailto:${profile?.email}`">メール</a>
-        <a :href="siteLinks?.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a v-if="siteLinks?.github" :href="siteLinks.github" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href="#top">トップへ ↑</a>
       </div>
     </div>

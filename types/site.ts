@@ -20,6 +20,7 @@ export interface Service {
   link: string;
   linkLabel: string;
   note: string;
+  status: string;
 }
 
 export interface Work {
@@ -28,6 +29,7 @@ export interface Work {
   tech: string;
   thumb: string;
   link: string;
+  status: string;
 }
 
 export interface CareerItem {
@@ -66,3 +68,9 @@ export interface SiteData {
   contact: Contact;
   links: Links;
 }
+
+/** シートの status 列でこの値が指定された項目は公開停止中として扱う */
+export const SUSPENDED_STATUS = '停止中';
+
+export const isSuspended = (item: { status?: string }): boolean =>
+  item.status?.trim() === SUSPENDED_STATUS;
