@@ -1,13 +1,12 @@
 <template>
   <SectionWrapper id="product" number="03" title="提供サービス">
     <div class="service-list">
-      <a
+      <component
+        :is="isSuspended(service) ? 'div' : 'a'"
         v-for="service in services"
         :key="service.name"
-        :href="service.link"
         class="service-card"
-        target="_blank"
-        rel="noopener noreferrer"
+        v-bind="cardLinkAttrs(service)"
       >
         <ImageSlider :images="service.images" :alt="service.name" />
         <div class="service-body">
@@ -18,11 +17,14 @@
           <p class="service-desc">{{ service.description }}</p>
           <div class="service-tech">{{ service.tech }}</div>
           <div class="service-actions">
-            <span class="btn-primary"> {{ service.linkLabel }}<span class="arrow">↗</span> </span>
-            <span class="service-note">{{ service.note }}</span>
+            <span v-if="isSuspended(service)" class="suspended-badge">公開停止中</span>
+            <template v-else>
+              <span class="btn-primary"> {{ service.linkLabel }}<span class="arrow">↗</span> </span>
+              <span class="service-note">{{ service.note }}</span>
+            </template>
           </div>
         </div>
-      </a>
+      </component>
     </div>
   </SectionWrapper>
 </template>
@@ -46,15 +48,18 @@ const { services } = await useSiteData();
   max-width: 560px;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
   background-color: var(--color-bg);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.service-card:hover,
-.service-card:focus-visible {
+a.service-card {
+  cursor: pointer;
+}
+
+a.service-card:hover,
+a.service-card:focus-visible {
   border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
@@ -123,13 +128,23 @@ const { services } = await useSiteData();
   transition: background 0.2s ease;
 }
 
-.service-card:hover .btn-primary {
+a.service-card:hover .btn-primary {
   background: var(--color-primary-dark);
 }
 
 .arrow {
   font-family: var(--font-mono);
   font-size: 12px;
+}
+
+.suspended-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-label);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 12px 22px;
 }
 
 .service-note {

@@ -68,6 +68,7 @@ function getServices(ss) {
       link: String(r.link || ''),
       linkLabel: String(r.linkLabel || ''),
       note: String(r.note || ''),
+      status: String(r.status || ''),
     };
   });
 }
@@ -81,6 +82,7 @@ function getWorks(ss) {
       tech: String(r.tech || ''),
       thumb: String(r.thumb || ''),
       link: String(r.link || ''),
+      status: String(r.status || ''),
     };
   });
 }

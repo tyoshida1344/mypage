@@ -1,36 +1,65 @@
 <template>
   <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
-    <a :href="siteLinks?.github" class="github-link" target="_blank" rel="noopener noreferrer">
+    <a
+      v-if="siteLinks?.github"
+      :href="siteLinks.github"
+      class="github-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <DotIndicator size="6px" gap="4px" />
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
     <div class="works-list">
-      <a
+      <component
+        :is="isSuspended(work) ? 'div' : 'a'"
         v-for="(work, i) in works"
         :key="i"
-        :href="work.link"
         class="work-card"
-        target="_blank"
-        rel="noopener noreferrer"
+        v-bind="cardLinkAttrs(work)"
       >
         <div class="work-image">
-          <img :src="work.thumb" :alt="`${work.title}のサムネイル`" loading="lazy" class="work-thumb">
+          <img
+            v-if="work.thumb && !failedThumbs.has(i)"
+            ref="thumbEls"
+            :data-index="i"
+            :src="work.thumb"
+            :alt="`${work.title}のサムネイル`"
+            loading="lazy"
+            class="work-thumb"
+            @error="failedThumbs.add(i)"
+          >
+          <span v-else class="no-image" aria-hidden="true">No Image</span>
         </div>
         <div class="work-body">
           <div class="work-header">
             <span class="work-title">{{ work.title }}</span>
-            <span class="work-link">見る ↗</span>
+            <span v-if="isSuspended(work)" class="suspended-badge">公開停止中</span>
+            <span v-else class="work-link">見る ↗</span>
           </div>
           <div class="work-desc">{{ work.description }}</div>
           <div class="work-tech">{{ work.tech }}</div>
         </div>
-      </a>
+      </component>
     </div>
   </SectionWrapper>
 </template>
 
 <script setup lang="ts">
+import { reactive, ref, onMounted } from 'vue';
+
 const { works, links: siteLinks } = await useSiteData();
+
+/** 読み込みに失敗したサムネイルのインデックス（No Image 表示に切り替える） */
+const failedThumbs = reactive(new Set<number>());
+const thumbEls = ref<HTMLImageElement[]>([]);
+
+// 静的 HTML の画像はハイドレーション前に読込失敗していると @error を取り逃すため、マウント時にも確認する
+onMounted(() => {
+  thumbEls.value.forEach((el) => {
+    if (el.complete && el.naturalWidth === 0) failedThumbs.add(Number(el.dataset.index));
+  });
+});
 </script>
 
 <style scoped>
@@ -81,8 +110,8 @@ const { works, links: siteLinks } = await useSiteData();
     box-shadow 0.2s ease;
 }
 
-.work-card:hover,
-.work-card:focus-visible {
+a.work-card:hover,
+a.work-card:focus-visible {
   border-color: var(--color-accent-light);
   box-shadow: var(--shadow-card-hover);
 }
@@ -93,6 +122,9 @@ const { works, links: siteLinks } = await useSiteData();
   border-radius: 4px;
   flex: none;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
 }
 
@@ -100,6 +132,13 @@ const { works, links: siteLinks } = await useSiteData();
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.no-image {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-label);
+  letter-spacing: 0.06em;
 }
 
 .work-body {
@@ -123,6 +162,18 @@ const { works, links: siteLinks } = await useSiteData();
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--color-text-label);
+  flex: none;
+}
+
+.suspended-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-label);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 2px 9px;
+  white-space: nowrap;
   flex: none;
 }
 

@@ -61,9 +61,9 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 
 ### `services` タブ
 
-| type | name | description | tech | image1 | image2 | image3 | image4 | link | linkLabel | note |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Chrome拡張 | 便利ツール オールインワン | 文字列生成・エポック変換... | JavaScript · CSS · ... | (画像URL) | (画像URL) | (画像URL) | (画像URL) | https://github.com/... | GitHub から入手 | git clone してご利用ください |
+| type | name | description | tech | image1 | image2 | image3 | image4 | link | linkLabel | note | status |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Chrome拡張 | 便利ツール オールインワン | 文字列生成・エポック変換... | JavaScript · CSS · ... | (画像URL) | (画像URL) | (画像URL) | (画像URL) | https://github.com/... | GitHub から入手 | git clone してご利用ください | |
 
 - `image1`〜`image4`: Google Drive の共有リンク URL を記入（不要な列は空欄）
 - Google Drive 画像URL の形式: `https://lh3.googleusercontent.com/d/FILE_ID`
@@ -71,11 +71,27 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 
 ### `works` タブ
 
-| title | description | tech | thumb | link |
-|---|---|---|---|---|
-| プロフィールサイト | 本サイト。Nuxt 3 で構築した... | Nuxt 3 · Vue 3 · TypeScript | (サムネイルURL) | https://github.com/... |
+| title | description | tech | thumb | link | status |
+|---|---|---|---|---|---|
+| プロフィールサイト | 本サイト。Nuxt 3 で構築した... | Nuxt 3 · Vue 3 · TypeScript | (サムネイルURL) | https://github.com/... | |
 
-- `thumb`: サムネイル画像の Google Drive 共有リンク URL
+- `thumb`: サムネイル画像の Google Drive 共有リンク URL（空欄・読込失敗時は「No Image」を表示）
+- `status`: 後述「公開停止・非公開」を参照
+
+### 公開停止・非公開（`services` / `works` 共通）
+
+`status` 列の値で、項目の出し方を切り替える。
+
+| `status` | サイトでの表示 |
+|---|---|
+| 空欄 | 通常どおり表示する |
+| `停止中` | 「公開停止中」として表示する。カードはリンクにならず、リンクボタン（Works は「見る ↗」）が「公開停止中」バッジに置き換わる。`link` の URL はサイトのページ・データに含まれない |
+| `非公開` | サイトに一切表示しない。項目の内容はサイトのページ・データに含まれない |
+
+- どちらも Nuxt のサーバー API で処理するため、開発者ツールからも URL・内容は見えない
+- `status` 列（`works` は F 列、`services` は L 列の2行目以降）にはデータの入力規則でプルダウン（`停止中` / `非公開`）を設定しており、それ以外の値は入力できない。空欄に戻すときはセルの内容を削除する
+- 通常公開に戻すときは `status` を空欄にする
+- 変更後は「サイト管理 → 公開する」で反映する
 
 ### `career` タブ
 
@@ -107,6 +123,8 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 | github |
 |---|
 | https://github.com/tyoshida1344 |
+
+- `github` が空欄の場合、フッターと Works セクションの GitHub リンクは表示されない
 
 ## 使い方
 
@@ -145,11 +163,12 @@ Netlify のビルドが開始され、数分後にサイトに反映される。
       "images": ["url1", "url2"],
       "link": "...",
       "linkLabel": "...",
-      "note": "..."
+      "note": "...",
+      "status": ""
     }
   ],
   "works": [
-    { "title": "...", "description": "...", "tech": "...", "thumb": "...", "link": "..." }
+    { "title": "...", "description": "...", "tech": "...", "thumb": "...", "link": "...", "status": "" }
   ],
   "career": [
     {

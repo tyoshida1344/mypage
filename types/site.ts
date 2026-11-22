@@ -20,6 +20,7 @@ export interface Service {
   link: string;
   linkLabel: string;
   note: string;
+  status: string;
 }
 
 export interface Work {
@@ -28,6 +29,7 @@ export interface Work {
   tech: string;
   thumb: string;
   link: string;
+  status: string;
 }
 
 export interface CareerItem {
