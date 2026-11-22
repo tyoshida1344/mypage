@@ -76,14 +76,19 @@ NUXT_GAS_API_URL=https://script.google.com/macros/s/xxxxx/exec
 | プロフィールサイト | 本サイト。Nuxt 3 で構築した... | Nuxt 3 · Vue 3 · TypeScript | (サムネイルURL) | https://github.com/... | |
 
 - `thumb`: サムネイル画像の Google Drive 共有リンク URL（空欄・読込失敗時は「No Image」を表示）
-- `status`: 後述「公開停止」を参照
+- `status`: 後述「公開停止・非公開」を参照
 
-### 公開停止（`services` / `works` 共通）
+### 公開停止・非公開（`services` / `works` 共通）
 
-`status` 列に `停止中` と入力すると、その項目は「公開停止中」として表示される。
+`status` 列の値で、項目の出し方を切り替える。
 
-- カードはリンクにならず、リンクボタン（Works は「見る ↗」）が「公開停止中」バッジに置き換わる
-- `link` の URL はサイトのページ・データに含まれない（Nuxt のサーバー API で除去）
+| `status` | サイトでの表示 |
+|---|---|
+| 空欄 | 通常どおり表示する |
+| `停止中` | 「公開停止中」として表示する。カードはリンクにならず、リンクボタン（Works は「見る ↗」）が「公開停止中」バッジに置き換わる。`link` の URL はサイトのページ・データに含まれない |
+| `非公開` | サイトに一切表示しない。項目の内容はサイトのページ・データに含まれない |
+
+- どちらも Nuxt のサーバー API で処理するため、開発者ツールからも URL・内容は見えない
 - 通常公開に戻すときは `status` を空欄にする
 - 変更後は「サイト管理 → 公開する」で反映する
 
@@ -157,11 +162,12 @@ Netlify のビルドが開始され、数分後にサイトに反映される。
       "images": ["url1", "url2"],
       "link": "...",
       "linkLabel": "...",
-      "note": "..."
+      "note": "...",
+      "status": ""
     }
   ],
   "works": [
-    { "title": "...", "description": "...", "tech": "...", "thumb": "...", "link": "..." }
+    { "title": "...", "description": "...", "tech": "...", "thumb": "...", "link": "...", "status": "" }
   ],
   "career": [
     {
