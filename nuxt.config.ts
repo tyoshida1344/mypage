@@ -25,4 +25,8 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  nitro: {
+    // データ取得失敗などで prerender が失敗したら generate を失敗させ、壊れたページを公開しない
+    prerender: { failOnError: true },
+  },
 });

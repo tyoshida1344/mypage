@@ -2,7 +2,9 @@
 // サイトデータ API — Google Sheets → JSON
 // ==================================================
 // スクリプトプロパティ:
-//   NETLIFY_BUILD_HOOK — Netlify Build Hook URL
+//   NETLIFY_BUILD_HOOK   — Netlify Build Hook URL
+//   NETLIFY_ACCESS_TOKEN — Netlify Personal access token（環境変数の同期に使用）
+//   NETLIFY_SITE_ID      — Netlify のサイト ID
 // ==================================================
 
 /** シートの全行をオブジェクト配列として返す */
@@ -169,12 +171,105 @@ function onOpen() {
     .addToUi();
 }
 
+var GAS_API_URL_ENV_KEY = 'NUXT_GAS_API_URL';
+var NETLIFY_API = 'https://api.netlify.com/api/v1';
+
 function publishSite() {
-  var hookUrl = PropertiesService.getScriptProperties().getProperty('NETLIFY_BUILD_HOOK');
-  if (!hookUrl) {
-    SpreadsheetApp.getUi().alert('NETLIFY_BUILD_HOOK が設定されていません。\nスクリプトプロパティに設定してください。');
+  var ui = SpreadsheetApp.getUi();
+  var props = PropertiesService.getScriptProperties();
+  var hookUrl = props.getProperty('NETLIFY_BUILD_HOOK');
+  var token = props.getProperty('NETLIFY_ACCESS_TOKEN');
+  var siteId = props.getProperty('NETLIFY_SITE_ID');
+  var missing = [
+    ['NETLIFY_BUILD_HOOK', hookUrl],
+    ['NETLIFY_ACCESS_TOKEN', token],
+    ['NETLIFY_SITE_ID', siteId],
+  ].filter(function (p) { return !p[1]; }).map(function (p) { return p[0]; });
+  if (missing.length) {
+    ui.alert(missing.join(', ') + ' が設定されていません。\nスクリプトプロパティに設定してください。');
     return;
   }
-  UrlFetchApp.fetch(hookUrl, { method: 'post' });
-  SpreadsheetApp.getUi().alert('サイトのビルドを開始しました。\n数分後に反映されます。');
+
+  var apiUrl;
+  try {
+    apiUrl = getLatestWebAppUrl();
+    syncNetlifyEnv(token, siteId, GAS_API_URL_ENV_KEY, apiUrl);
+  } catch (e) {
+    ui.alert('Netlify の環境変数 ' + GAS_API_URL_ENV_KEY + ' を同期できなかったため、公開を中止しました。\n\n' + e.message);
+    return;
+  }
+
+  var hookCode = UrlFetchApp.fetch(hookUrl, { method: 'post', muteHttpExceptions: true }).getResponseCode();
+  if (hookCode < 200 || hookCode >= 300) {
+    ui.alert('ビルドを開始できませんでした（HTTP ' + hookCode + '）。\nNETLIFY_BUILD_HOOK を確認してください。');
+    return;
+  }
+  ui.alert('サイトのビルドを開始しました。\n数分後に反映されます。\n\nAPI URL: ' + apiUrl);
+}
+
+/** JSON API を呼び出し、2xx 以外は例外にする。404 は null を返す */
+function fetchJson(url, options) {
+  var res = UrlFetchApp.fetch(url, Object.assign({ muteHttpExceptions: true }, options));
+  var code = res.getResponseCode();
+  if (code === 404) return null;
+  if (code < 200 || code >= 300) {
+    throw new Error(code + ' ' + url.split('?')[0] + '\n' + res.getContentText().slice(0, 300));
+  }
+  var text = res.getContentText();
+  return text ? JSON.parse(text) : {};
+}
+
+/** Apps Script API で、更新日時が最新のウェブアプリ版デプロイの /exec URL を取得する */
+function getLatestWebAppUrl() {
+  var url = 'https://script.googleapis.com/v1/projects/' + ScriptApp.getScriptId() + '/deployments';
+  var res;
+  try {
+    res = fetchJson(url, { headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() } });
+  } catch (e) {
+    throw new Error('デプロイ一覧を取得できませんでした。Apps Script API が有効か確認してください（https://script.google.com/home/usersettings）。\n' + e.message);
+  }
+  var latest = ((res && res.deployments) || [])
+    // HEAD デプロイ（versionNumber なし・/dev URL）は除外
+    .filter(function (d) { return d.deploymentConfig && d.deploymentConfig.versionNumber; })
+    .map(function (d) {
+      var webApp = (d.entryPoints || []).filter(function (e) { return e.entryPointType === 'WEB_APP'; })[0];
+      return { url: webApp && webApp.webApp.url, updateTime: d.updateTime };
+    })
+    .filter(function (d) { return d.url; })
+    .sort(function (a, b) { return a.updateTime < b.updateTime ? 1 : -1; })[0];
+  if (!latest) throw new Error('ウェブアプリとしてのデプロイが見つかりません。');
+  return latest.url;
+}
+
+/** Netlify のサイト環境変数を value に揃える（同じ値なら何もしない、無ければ作成） */
+function syncNetlifyEnv(token, siteId, key, value) {
+  var headers = { Authorization: 'Bearer ' + token };
+  var site = fetchJson(NETLIFY_API + '/sites/' + siteId, { headers: headers });
+  if (!site) throw new Error('Netlify のサイトが見つかりません（NETLIFY_SITE_ID を確認してください）。');
+
+  var envUrl = NETLIFY_API + '/accounts/' + site.account_id + '/env';
+  var query = '?site_id=' + encodeURIComponent(siteId);
+  var current = fetchJson(envUrl + '/' + key + query, { headers: headers });
+  var values = [{ context: 'all', value: value }];
+
+  if (!current) {
+    fetchJson(envUrl + query, {
+      method: 'post',
+      headers: headers,
+      contentType: 'application/json',
+      // scopes 省略時は全スコープ（スコープ指定は Netlify のプランによって使えないため指定しない）
+      payload: JSON.stringify([{ key: key, values: values }]),
+    });
+    return;
+  }
+
+  var upToDate = current.values.length > 0 && current.values.every(function (v) { return v.value === value; });
+  if (upToDate) return;
+
+  fetchJson(envUrl + '/' + key + query, {
+    method: 'put',
+    headers: headers,
+    contentType: 'application/json',
+    payload: JSON.stringify({ key: key, scopes: current.scopes, values: values }),
+  });
 }
