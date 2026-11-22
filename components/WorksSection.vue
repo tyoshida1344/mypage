@@ -1,6 +1,12 @@
 <template>
   <SectionWrapper id="works" number="04" title="ポートフォリオ一覧">
-    <a v-if="siteLinks?.github" :href="siteLinks.github" class="github-link" target="_blank" rel="noopener noreferrer">
+    <a
+      v-if="siteLinks?.github"
+      :href="siteLinks.github"
+      class="github-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <DotIndicator size="6px" gap="4px" />
       GitHub でコードを見る<span class="arrow">↗</span>
     </a>
@@ -10,7 +16,7 @@
         v-for="(work, i) in works"
         :key="i"
         class="work-card"
-        v-bind="isSuspended(work) ? {} : { href: work.link, target: '_blank', rel: 'noopener noreferrer' }"
+        v-bind="cardLinkAttrs(work)"
       >
         <div class="work-image">
           <img
@@ -41,7 +47,6 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue';
-import { isSuspended } from '~/types/site';
 
 const { works, links: siteLinks } = await useSiteData();
 

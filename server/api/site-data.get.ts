@@ -1,4 +1,5 @@
-import { isSuspended, type SiteData } from '~/types/site';
+import type { SiteData } from '~/types/site';
+import { isSuspended } from '~/utils/suspended';
 
 /** 公開停止中の項目はリンク URL をページ・payload に含めないよう空にする */
 const stripSuspendedLinks = <T extends { status?: string; link: string }>(items: T[]): T[] =>

@@ -154,7 +154,7 @@ onBeforeUnmount(pause);
 .slider {
   position: relative;
   overflow: hidden;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
   height: 320px;
   background: linear-gradient(135deg, var(--color-accent-bg) 0%, var(--color-bg) 100%);
 }

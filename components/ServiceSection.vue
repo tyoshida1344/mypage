@@ -6,7 +6,7 @@
         v-for="service in services"
         :key="service.name"
         class="service-card"
-        v-bind="isSuspended(service) ? {} : { href: service.link, target: '_blank', rel: 'noopener noreferrer' }"
+        v-bind="cardLinkAttrs(service)"
       >
         <ImageSlider :images="service.images" :alt="service.name" />
         <div class="service-body">
@@ -30,8 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { isSuspended } from '~/types/site';
-
 const { services } = await useSiteData();
 </script>
 
@@ -146,7 +144,7 @@ a.service-card:hover .btn-primary {
   color: var(--color-text-label);
   border: 1px solid var(--color-border);
   border-radius: 100px;
-  padding: 10px 20px;
+  padding: 12px 22px;
 }
 
 .service-note {
